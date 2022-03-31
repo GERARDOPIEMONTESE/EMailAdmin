@@ -1,0 +1,8 @@
+﻿@model List<Admin.Common.Dto.Graficos.DTOGrafico>
+
+@if (Model.Count>0){
+   foreach (var graf in @Model)
+    {
+        @Html.Partial("API/_GenericGrafic", @graf)
+    }
+}

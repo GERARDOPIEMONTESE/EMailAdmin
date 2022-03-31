@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://172.17.1.40:8080/ws/services/MembershipInformation" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://172.17.1.40:8080/ws/services/MembershipInformation" targetNamespace="http://172.17.1.40:8080/ws/services/MembershipInformation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="getMembershipInformationResponse1">
+    <wsdl:part name="getMembershipInformationReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getBizMembershipInformationResponse">
+    <wsdl:part name="getBizMembershipInformationReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getMultipleMembershipInformationRequest">
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="codigosVoucher" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getMembershipInformationRequest">
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="codigoVoucher" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getDateMembershipInformationResponse">
+    <wsdl:part name="getDateMembershipInformationReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllBizMembershipInformationResponse">
+    <wsdl:part name="getAllBizMembershipInformationReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getBizMembershipInformationRequest">
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="codigoTarjeta" type="xsd:string" />
+    <wsdl:part name="fecha" type="xsd:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="getAllBizMembershipInformationRequest">
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="codigoTarjeta" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getMembershipInformationRequest1">
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="codigoVoucher" type="xsd:string" />
+    <wsdl:part name="fecha" type="xsd:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="getMultipleMembershipInformationResponse">
+    <wsdl:part name="getMultipleMembershipInformationReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getMembershipInformationResponse">
+    <wsdl:part name="getMembershipInformationReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getDateMembershipInformationRequest">
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="fechaDesde" type="xsd:dateTime" />
+    <wsdl:part name="fechaHasta" type="xsd:dateTime" />
+  </wsdl:message>
+  <wsdl:portType name="MembershipInformation">
+    <wsdl:operation name="getMembershipInformation" parameterOrder="user password pais codigoVoucher">
+      <wsdl:input name="getMembershipInformationRequest" message="impl:getMembershipInformationRequest" />
+      <wsdl:output name="getMembershipInformationResponse" message="impl:getMembershipInformationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMembershipInformation" parameterOrder="user password pais codigoVoucher fecha">
+      <wsdl:input name="getMembershipInformationRequest1" message="impl:getMembershipInformationRequest1" />
+      <wsdl:output name="getMembershipInformationResponse1" message="impl:getMembershipInformationResponse1" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllBizMembershipInformation" parameterOrder="user password pais codigoTarjeta">
+      <wsdl:input name="getAllBizMembershipInformationRequest" message="impl:getAllBizMembershipInformationRequest" />
+      <wsdl:output name="getAllBizMembershipInformationResponse" message="impl:getAllBizMembershipInformationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getBizMembershipInformation" parameterOrder="user password pais codigoTarjeta fecha">
+      <wsdl:input name="getBizMembershipInformationRequest" message="impl:getBizMembershipInformationRequest" />
+      <wsdl:output name="getBizMembershipInformationResponse" message="impl:getBizMembershipInformationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDateMembershipInformation" parameterOrder="user password pais fechaDesde fechaHasta">
+      <wsdl:input name="getDateMembershipInformationRequest" message="impl:getDateMembershipInformationRequest" />
+      <wsdl:output name="getDateMembershipInformationResponse" message="impl:getDateMembershipInformationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMultipleMembershipInformation" parameterOrder="user password pais codigosVoucher">
+      <wsdl:input name="getMultipleMembershipInformationRequest" message="impl:getMultipleMembershipInformationRequest" />
+      <wsdl:output name="getMultipleMembershipInformationResponse" message="impl:getMultipleMembershipInformationResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MembershipInformationSoapBinding" type="impl:MembershipInformation">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getMembershipInformation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getMembershipInformationRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getMembershipInformationResponse">
+        <wsdlsoap:body use="encoded" namespace="http://172.17.1.40:8080/ws/services/MembershipInformation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMembershipInformation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getMembershipInformationRequest1">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getMembershipInformationResponse1">
+        <wsdlsoap:body use="encoded" namespace="http://172.17.1.40:8080/ws/services/MembershipInformation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBizMembershipInformation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAllBizMembershipInformationRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getAllBizMembershipInformationResponse">
+        <wsdlsoap:body use="encoded" namespace="http://172.17.1.40:8080/ws/services/MembershipInformation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBizMembershipInformation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getBizMembershipInformationRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getBizMembershipInformationResponse">
+        <wsdlsoap:body use="encoded" namespace="http://172.17.1.40:8080/ws/services/MembershipInformation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDateMembershipInformation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDateMembershipInformationRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getDateMembershipInformationResponse">
+        <wsdlsoap:body use="encoded" namespace="http://172.17.1.40:8080/ws/services/MembershipInformation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMultipleMembershipInformation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getMultipleMembershipInformationRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getMultipleMembershipInformationResponse">
+        <wsdlsoap:body use="encoded" namespace="http://172.17.1.40:8080/ws/services/MembershipInformation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MembershipInformationService">
+    <wsdl:port name="MembershipInformation" binding="impl:MembershipInformationSoapBinding">
+      <wsdlsoap:address location="http://172.17.1.40:8080/ws/services/MembershipInformation" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

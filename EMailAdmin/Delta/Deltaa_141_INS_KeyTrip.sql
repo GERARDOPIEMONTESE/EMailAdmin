@@ -1,0 +1,1 @@
+insert into Portal.dbo.CodigoActivador (Codigo, Valor) values ('emailadmin.Trip.AGV', '99999')

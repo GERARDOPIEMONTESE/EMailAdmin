@@ -1,0 +1,13 @@
+﻿
+Usar estas URLs en la config del proyecto EmailAdmin 
+(en Proyect Settings, solapa Web, Start Action -> Specific Page)
+
+
+* Nueva version del pdf adjunto (RimacParticularConditionsReport.rpt)
+
+// buscarlos en la tabla EMAILLOG 
+Attachment/StrategyAttachmentHandler.ashx?IdLanguage=1&VoucherCode=10342554&CountryCode=540&ModuleCode=ACNET
+
+* Certificado de Brazil (BrazilCertifiedAttachReport.rpt)
+
+Attachment/StrategyAttachmentHandler.ashx?IdLanguage=3&VoucherCode=9080666&CountryCode=550&ModuleCode=ACNET

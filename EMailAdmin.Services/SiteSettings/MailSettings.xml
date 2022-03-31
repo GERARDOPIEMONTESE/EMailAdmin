@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Messaging>
+  <Configuration>    
+    <Host>smtp.assist-card.com</Host>
+    <Port>25</Port>
+    <MailFrom>noreplyAC@assistcard.com</MailFrom>
+    <CredentialsUserName></CredentialsUserName>
+    <CredentialsPwd></CredentialsPwd>
+    <MailFromAppearance>ASSIST-CARD On Line</MailFromAppearance>
+  </Configuration>
+</Messaging>

@@ -1,0 +1,1 @@
+insert into portal.dbo.codigoactivador (codigo, valor) values ('template.ColorDefault', 'DC4033')

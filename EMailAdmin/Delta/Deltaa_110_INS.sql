@@ -1,0 +1,1 @@
+insert into portal.dbo.codigoactivador (codigo, valor) values ('emailadmin.pdf.condicion.precio', 'false')

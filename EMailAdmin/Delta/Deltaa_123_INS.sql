@@ -1,0 +1,2 @@
+INSERT INTO Estrategy (Code, Description, Class, AttachName, AttachType)
+VALUES ('BRBILHETE', 'Main Benefits Brazil Bihete Attach Pdf', 'EMailAdmin.BackEnd.Strategies.Attachment.MainBenefitsBrazilBilleteAttachStrategy', 'BraBilhetePDF.pdf', 'application/pdf')

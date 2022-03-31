@@ -1,0 +1,4 @@
+23/09/2014 - Corridos hasta 02_Delta_UPD.SQL en producción
+25/09/2014 - Correr en produccion 04_delta_SP
+30/09/2014 - Se corrio hasta el delta  05_Delta_SP.sql
+28/10/2014 - Correr en produccion delta 06

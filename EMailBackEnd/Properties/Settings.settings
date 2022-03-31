@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EMailAdmin.BackEnd.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="VariableInitTag" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">${</Value>
+    </Setting>
+    <Setting Name="VariableEndTag" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">}$</Value>
+    </Setting>
+    <Setting Name="VariableSeparator" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">,</Value>
+    </Setting>
+    <Setting Name="ClauseSeparator" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">S</Value>
+    </Setting>
+    <Setting Name="OrClause" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">||</Value>
+    </Setting>
+    <Setting Name="AndClause" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&amp;&amp;</Value>
+    </Setting>
+    <Setting Name="EMailAdmin_BackEnd_AssistCardService_AssistCardServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://www.assist-card.net/ws/services/AssistCardService</Value>
+    </Setting>
+    <Setting Name="EMailAdmin_BackEnd_ServiceBoxPax_AssistCardDaysAcquisitionServiceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService</Value>
+    </Setting>
+    <Setting Name="EMailAdmin_BackEnd_wsServiciocondiciones_ServicioClausulasWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://serviciocondiciones.assist-card.com/ServicioClausulasWS.asmx</Value>
+    </Setting>
+    <Setting Name="EMailAdmin_BackEnd_wsXAM_MailService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://acixamweb05.assist-card.com.ar/eAAvs/WebServices/WsMail/WSMail.svc/soap</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

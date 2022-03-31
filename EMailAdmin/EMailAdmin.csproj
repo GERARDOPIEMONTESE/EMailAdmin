@@ -1,0 +1,2066 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0673392D-6596-403F-9097-628BC751B395}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EMailAdmin</RootNamespace>
+    <AssemblyName>EMailAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="Portal-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=172.17.1.63%3bInitial Catalog=Portal_Prod_Last%3bUser ID=devapp%3bPassword=123456" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\Portal-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="Workflow-Deployment" Order="2">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=172.17.1.63%3bInitial Catalog=Workflow%3bUser ID=devapp%3bPassword=123456" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\Workflow-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="EMailAdmin-Deployment" Order="3">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=172.17.1.63%3bInitial Catalog=EMailAdmin%3bUser ID=devapp%3bPassword=123456" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\EMailAdmin-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="Condiciones-Deployment" Order="4">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=172.17.1.63%3bInitial Catalog=Condiciones%3bUser ID=devapp%3bPassword=123456" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\Condiciones-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="ACNet-Deployment" Order="5">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="SERVER=%28DESCRIPTION=%28ADDRESS=%28PROTOCOL=TCP%29%28HOST=172.17.1.54%29%28PORT=1521%29%29%28CONNECT_DATA=%28SERVICE_NAME=ACIDBO01%29%29%29%3buid=ICARD%3bpwd=ICARD%3b" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\ACNet-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <PublishDatabases>false</PublishDatabases>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Administration\Configuration\ProcessManager.aspx" />
+    <Content Include="Administration\Configuration\ValuesManager.aspx" />
+    <Content Include="Administration\EMailLists\EMailListManager.aspx" />
+    <Content Include="Administration\EmailLogsCapita\EmailLogsCapita.aspx" />
+    <Content Include="Administration\EmailLogsPrecompra\EmailLogPrecompraList.aspx" />
+    <Content Include="Administration\EmailLogsPrecompra\FrwEmailPrepurchase.aspx" />
+    <Content Include="Administration\EmailLogs\EmailLogList.aspx" />
+    <Content Include="Administration\EmailLogs\EMailProcessLogList.aspx" />
+    <Content Include="Administration\NotSentEmailAgencia\NotSendEmailAgencia.aspx" />
+    <Content Include="AttachmentGroups\AttachmentGroupItem.aspx" />
+    <Content Include="AttachmentGroups\ListAttachmentGroup.aspx" />
+    <Content Include="Attachment\AttachmentInformation.aspx" />
+    <Content Include="Attachment\AttachmentList.aspx" />
+    <Content Include="Controls\AttachmentGroup\AttachmentGroup.ascx" />
+    <Content Include="Controls\AttachmentTemplates\AttachmentTemplatesSelector.ascx" />
+    <Content Include="Controls\ContentAttachmentVariable\ContentAttachment.ascx" />
+    <Content Include="Controls\DynamicValue\DynamicValueConfig.ascx" />
+    <Content Include="Controls\Selectors\Clausule\ClausuleSelector.ascx" />
+    <Content Include="Controls\Selectors\Pixel\PixelSelector.ascx" />
+    <Content Include="Deltas\007_delta_DA ROLLBACK.sql" />
+    <Content Include="Deltas\008_delta_DA ROLLBACK.sql" />
+    <Content Include="Delta\Deltaa_146_ES.sql" />
+    <Content Include="Delta\Deltaa_146_ConfigServicios_Workflow.sql" />
+    <Content Include="Delta\Deltaa_146_SP.sql" />
+    <Content Include="Delta\Deltaa_146_INS.sql" />
+    <Content Include="Delta\Deltaa_109_INS.sql" />
+    <Content Include="Delta\Deltaa_102_SP.sql" />
+    <Content Include="Delta\Deltaa_103_INS.sql" />
+    <Content Include="Delta\Deltaa_104_SP.sql" />
+    <Content Include="Delta\Deltaa_105_IDX.sql" />
+    <Content Include="Delta\Deltaa_106_INS.sql" />
+    <Content Include="Delta\Deltaa_107_E.sql" />
+    <Content Include="Delta\Deltaa_108_SP.sql" />
+    <Content Include="Delta\Deltaa_109_SP.sql" />
+    <Content Include="Delta\Deltaa_110_INS.sql" />
+    <Content Include="Delta\Deltaa_111_INS.sql" />
+    <Content Include="Delta\Deltaa_112_ES.sql" />
+    <Content Include="Delta\Deltaa_113_SP.sql" />
+    <Content Include="Delta\Deltaa_114_SP.sql" />
+    <Content Include="Delta\Deltaa_115_SP.sql" />
+    <Content Include="Delta\Deltaa_116_SP.sql" />
+    <Content Include="Delta\Deltaa_117_SP.sql" />
+    <Content Include="Delta\Deltaa_118_INS.sql" />
+    <Content Include="Delta\Deltaa_119_SP.sql" />
+    <Content Include="Delta\Deltaa_120_ES.sql" />
+    <Content Include="Delta\Deltaa_121_SP.sql" />
+    <Content Include="Delta\Deltaa_122_INS.sql" />
+    <Content Include="Delta\Deltaa_123_INS.sql" />
+    <Content Include="Delta\Deltaa_124_ES.sql" />
+    <Content Include="Delta\Deltaa_125_SP.sql" />
+    <Content Include="Delta\Deltaa_126_ES.sql" />
+    <Content Include="Delta\Deltaa_128_ES.sql" />
+    <Content Include="Delta\Deltaa_129_SP.sql" />
+    <Content Include="Delta\Deltaa_130_SP.sql" />
+    <Content Include="Delta\Deltaa_131_SP.sql" />
+    <Content Include="Delta\Deltaa_132_INS.sql" />
+    <Content Include="Delta\Deltaa_133_INS.sql" />
+    <Content Include="Delta\Deltaa_134_SP.sql" />
+    <Content Include="Delta\Deltaa_135_SP.sql" />
+    <Content Include="Delta\Deltaa_136_SP.sql" />
+    <Content Include="Delta\Deltaa_137_INS.sql" />
+    <Content Include="Delta\Deltaa_138_INS_ReportLanguageFilipinas.sql" />
+    <Content Include="Delta\Deltaa_139_E.sql" />
+    <Content Include="Delta\Deltaa_140.sql" />
+    <Content Include="Delta\Deltaa_141_INS_KeyTrip.sql" />
+    <Content Include="Delta\Deltaa_141_INS_KeyTripMailto.sql" />
+    <Content Include="Delta\Deltaa_141_UPD_Trip.sql" />
+    <Content Include="Delta\Deltaa_142_SP.sql" />
+    <Content Include="Delta\Deltaa_143_SP.sql" />
+    <Content Include="Delta\Deltaa_144_FN.sql" />
+    <Content Include="Delta\Deltaa_145_INS.sql" />
+    <Content Include="Delta\Deltaa_147_ES.sql" />
+    <Content Include="Delta\Delta_100_DA.sql" />
+    <Content Include="Delta\delta_98_SP.sql" />
+    <Content Include="Delta\delta_99_DA.sql" />
+    <Content Include="Image\handlerQR.ashx" />
+    <Content Include="IMG\ac-01.jpg" />
+    <Content Include="IMG\icon_2.png" />
+    <Content Include="IMG\icon_edit.png" />
+    <Content Include="IMG\imgQR.png" />
+    <Content Include="Libraries\HtmlAgilityPack.dll" />
+    <Content Include="Libraries\itextsharp.xmlworker.dll" />
+    <Content Include="Libs\FrameworkDAC.dll" />
+    <Content Include="Libs\Seguridad.dll" />
+    <Content Include="Libs\WorkFlowLibrary.dll" />
+    <Content Include="Links\EdicionDeLinks.aspx" />
+    <Content Include="Links\ListaDeLinks.aspx" />
+    <Content Include="Administration\NotSent\NotSentEMail.aspx" />
+    <Content Include="Administration\SendMail\SendMailCapita.aspx" />
+    <Content Include="Administration\SendMail\TestConditionAlert.aspx" />
+    <Content Include="Administration\SendMail\TestPointsReport.aspx" />
+    <Content Include="Administration\SendMail\SendMail.aspx" />
+    <Content Include="Administration\SendMail\TestAttach.aspx" />
+    <Content Include="Administration\Zip\EMailLogZip.aspx" />
+    <Content Include="Associations\AssociationsInformation.aspx" />
+    <Content Include="Associations\AssociationsList.aspx" />
+    <Content Include="Associations\AttachmentAssociationsInformation.aspx" />
+    <Content Include="Associations\AttachmentAssociationsList.aspx" />
+    <Content Include="Associations\BulkLoad.aspx" />
+    <Content Include="ConditionVariableText\ConditionVariableTextInformation.aspx" />
+    <Content Include="ConditionVariableText\ConditionVariableTextList.aspx" />
+    <Content Include="Controls\Account\AccountDropDown.ascx" />
+    <Content Include="Controls\Account\AccountSelector.ascx" />
+    <Content Include="Controls\Associations\AssociationsControl.ascx" />
+    <Content Include="Controls\Selectors\Capita\CapitaSelector.ascx" />
+    <Content Include="Controls\Selectors\ConditionVariableText\ConditionVariableTextSelector.ascx" />
+    <Content Include="Controls\Selectors\TableVariableText\TableVariableSelector.ascx" />
+    <Content Include="Controls\Selectors\UpgradeVariableText\UpgradeVariableTextSelector.ascx" />
+    <Content Include="Controls\UpgradeVariableText\UpgradeVariableTextDropDown.ascx" />
+    <Content Include="Controls\UpgradeVariableText\UpgradeVariableTextSelector.ascx" />
+    <Content Include="Controls\UpgradeVariableTextType\UpgradeVariableTextTypeDropDown.ascx" />
+    <Content Include="Controls\UpgradeVariableTextType\UpgradeVariableTextTypeSelector.ascx" />
+    <Content Include="Controls\CountryVisibleTextType\CountryVisibleTextTypeDropDown.ascx" />
+    <Content Include="Controls\CountryVisibleTextType\CountryVisibleTextTypeSelector.ascx" />
+    <Content Include="Controls\Country\CountryDropDown.ascx" />
+    <Content Include="Controls\Country\CountrySelector.ascx" />
+    <Content Include="Controls\Group\GroupControl.ascx" />
+    <Content Include="Controls\Group\GroupViewer.ascx" />
+    <Content Include="Controls\Picture\PictureUploader.ascx" />
+    <Content Include="Controls\Preview\pdf.aspx" />
+    <Content Include="Controls\Preview\Preview.ascx" />
+    <Content Include="Controls\Product\ProductDropDown.ascx" />
+    <Content Include="Controls\Product\ProductSelector.ascx" />
+    <Content Include="Controls\Rate\RateDropDown.ascx" />
+    <Content Include="Controls\Rate\RateSelector.ascx" />
+    <Content Include="Controls\Selectors\Attachment\AttachmentSelector.ascx" />
+    <Content Include="Controls\Selectors\Contact\ContactSelector.ascx" />
+    <Content Include="Controls\Selectors\CountryVisibleText\CountryVisibleTextSelector.ascx" />
+    <Content Include="Controls\Selectors\Image\ImageSelector.ascx" />
+    <Content Include="Controls\Selectors\Link\LinkSelector.ascx" />
+    <Content Include="Controls\Selectors\Signature\SignatureSelector.ascx" />
+    <Content Include="Controls\Selectors\VariableText\VariableTextSelector.ascx" />
+    <Content Include="Controls\SignatureType\SignatureTypeDropDown.ascx" />
+    <Content Include="Controls\TabRich\RichTextControl.ascx" />
+    <Content Include="Controls\SignatureType\SignatureTypeSelector.ascx" />
+    <Content Include="Controls\TabRich\TabRichTextControl.ascx" />
+    <Content Include="Controls\Template\TabTemplateControl.ascx" />
+    <Content Include="Controls\Template\TemplateControl.ascx" />
+    <Content Include="Controls\VariableText\VariableTextDropDown.ascx" />
+    <Content Include="Controls\VariableText\VariableTextSelector.ascx" />
+    <Content Include="CSS\default.css" />
+    <Content Include="Delta\Deltaa_100_SP.sql" />
+    <Content Include="Delta\Deltaa_101_INS.sql" />
+    <Content Include="Delta\delta_90_SP.sql" />
+    <Content Include="Delta\Delta_89_INS.sql" />
+    <Content Include="Delta\Delta_80_INS.sql" />
+    <Content Include="Delta\Delta_56_E.sql" />
+    <Content Include="Delta\Delta_57_SP.sql" />
+    <Content Include="Delta\Delta_58_Drop.sql" />
+    <Content Include="Delta\Delta_01_E.sql" />
+    <Content Include="Delta\Delta_02_E.sql" />
+    <Content Include="Delta\Delta_03_SP.sql" />
+    <Content Include="Delta\Delta_04_SP.sql" />
+    <Content Include="Delta\Delta_05_SP.sql" />
+    <Content Include="Delta\Delta_06_SP.sql" />
+    <Content Include="Delta\Delta_07_SP.sql" />
+    <Content Include="Delta\Delta_08_SP.sql" />
+    <Content Include="Delta\Delta_09_SP.sql" />
+    <Content Include="Delta\Delta_11_E.sql" />
+    <Content Include="Delta\Delta_12_E.sql" />
+    <Content Include="Delta\Delta_13_SP.sql" />
+    <Content Include="Delta\Delta_14_SP.sql" />
+    <Content Include="Delta\Delta_15_SP.sql" />
+    <Content Include="Delta\Delta_16_SP.sql" />
+    <Content Include="Delta\Delta_17_SP.sql" />
+    <Content Include="Delta\Delta_19_SP.sql" />
+    <Content Include="Delta\Delta_20_INS.sql" />
+    <Content Include="Delta\Delta_21_INS.sql" />
+    <Content Include="Delta\Delta_22_INS.sql" />
+    <Content Include="Delta\Delta_23_IDX.sql" />
+    <Content Include="Delta\Delta_24_SP.sql" />
+    <Content Include="Delta\Delta_25_VW.sql" />
+    <Content Include="Delta\Delta_26_E.sql" />
+    <Content Include="Delta\Delta_27_E.sql" />
+    <Content Include="Delta\Delta_28_sp.sql" />
+    <Content Include="Delta\Delta_29_sp.sql" />
+    <Content Include="Delta\Delta_30_sp.sql" />
+    <Content Include="Delta\Delta_31_sp.sql" />
+    <Content Include="Delta\Delta_32_sp.sql" />
+    <Content Include="Delta\Delta_33_INS.sql" />
+    <Content Include="Delta\Delta_34_E.sql" />
+    <Content Include="Delta\Delta_35_E.sql" />
+    <Content Include="Delta\Delta_36_E.sql" />
+    <Content Include="Delta\Delta_37_E.sql" />
+    <Content Include="Delta\Delta_38_E.sql" />
+    <Content Include="Delta\Delta_39_E.sql" />
+    <Content Include="Delta\Delta_40_SP.sql" />
+    <Content Include="Delta\Delta_41_SP.sql" />
+    <Content Include="Delta\Delta_42_SP.sql" />
+    <Content Include="Delta\Delta_43_SP.sql" />
+    <Content Include="Delta\Delta_44_SP.sql" />
+    <Content Include="Delta\Delta_45_SP.sql" />
+    <Content Include="Delta\Delta_46_SP.sql" />
+    <Content Include="Delta\Delta_47_SP.sql" />
+    <Content Include="Delta\Delta_48_SP.sql" />
+    <Content Include="Delta\Delta_49_SP.sql" />
+    <Content Include="Delta\Delta_50_SP.sql" />
+    <Content Include="Delta\Delta_51_SP.sql" />
+    <Content Include="Delta\Delta_52_SP.sql" />
+    <Content Include="Delta\Delta_53_SP.sql" />
+    <Content Include="Delta\Delta_54_SP.sql" />
+    <Content Include="Delta\Delta_55_INS.sql" />
+    <Content Include="Delta\Delta_59_INS.sql" />
+    <Content Include="Delta\Delta_60_SP.sql" />
+    <Content Include="Delta\Delta_61_SP.sql" />
+    <Content Include="Delta\Delta_62_SP.sql" />
+    <Content Include="Delta\Delta_63_SP.sql" />
+    <Content Include="Delta\Delta_64_INS.sql" />
+    <Content Include="Delta\Delta_65_E.sql" />
+    <Content Include="Delta\Delta_66_SP.sql" />
+    <Content Include="Delta\Delta_67_SP.sql" />
+    <Content Include="Delta\Delta_68_SP.sql" />
+    <Content Include="Delta\Delta_69_SP.sql" />
+    <Content Include="Delta\Delta_70_SP.sql" />
+    <Content Include="Delta\Delta_71_SP.sql" />
+    <Content Include="Delta\Delta_72_SP.sql" />
+    <Content Include="Delta\Delta_73_SP.sql" />
+    <Content Include="Delta\Delta_74_SP.sql" />
+    <Content Include="Delta\Delta_75_SP.sql" />
+    <Content Include="Delta\Delta_76_SP.sql" />
+    <Content Include="Delta\Delta_77_INS.sql" />
+    <Content Include="Delta\Delta_79_SP.sql" />
+    <Content Include="Delta\Delta_81_INS.sql" />
+    <Content Include="Delta\Delta_82_FC.sql" />
+    <Content Include="Delta\Delta_83_ES.sql" />
+    <Content Include="Delta\Delta_84_SP.sql" />
+    <Content Include="Delta\Delta_85_SP.sql" />
+    <Content Include="Delta\delta_86_INS.sql" />
+    <Content Include="Delta\delta_87_SP.sql" />
+    <Content Include="Delta\delta_88_FN.sql" />
+    <Content Include="Delta\delta_91_SP.sql" />
+    <Content Include="Delta\delta_92_INS.sql" />
+    <Content Include="Delta\delta_93_SP.sql" />
+    <Content Include="Delta\delta_94_SP.sql" />
+    <Content Include="Delta\delta_95_E.sql" />
+    <Content Include="Delta\delta_96_SP.sql" />
+    <Content Include="Delta\delta_97_SP.sql" />
+    <Content Include="IMG\ajax-loader.gif" />
+    <Content Include="IMG\contenedor_voucher.bmp" />
+    <Content Include="IMG\contenedor_voucher.png" />
+    <Content Include="IMG\firulete.jpg" />
+    <Content Include="IMG\HappyBirth\happybanner_down.jpg" />
+    <Content Include="IMG\HappyBirth\happybanner_up.png" />
+    <Content Include="IMG\HappyBirth\Locations\Argentina.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Bolivia.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Brazil.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Cambodia.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Canada.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Chile.gif" />
+    <Content Include="IMG\HappyBirth\Locations\China.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Colombia.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Costa Rica.gif" />
+    <Content Include="IMG\HappyBirth\Locations\CostaRica.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Dominican Republic.gif" />
+    <Content Include="IMG\HappyBirth\Locations\DominicanRepublic.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Ecuador.gif" />
+    <Content Include="IMG\HappyBirth\Locations\El Salvador.gif" />
+    <Content Include="IMG\HappyBirth\Locations\ElSalvador.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Equatorial Guinea.gif" />
+    <Content Include="IMG\HappyBirth\Locations\EquatorialGuinea.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Guatemala.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Honduras.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Hungary.gif" />
+    <Content Include="IMG\HappyBirth\Locations\India.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Indonesia.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Israel.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Mexico.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Nicaragua.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Oman.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Panama.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Paraguay.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Peru.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Philippines.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Singapore.gif" />
+    <Content Include="IMG\HappyBirth\Locations\SouthAfrica.gif" />
+    <Content Include="IMG\HappyBirth\Locations\SouthKorea.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Spain.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Sri Lanka.gif" />
+    <Content Include="IMG\HappyBirth\Locations\SriLanka.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Thailand.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Turkey.gif" />
+    <Content Include="IMG\HappyBirth\Locations\United States.gif" />
+    <Content Include="IMG\HappyBirth\Locations\UnitedStates.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Uruguay.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Venezuela.gif" />
+    <Content Include="IMG\HappyBirth\Locations\Vietnam.gif" />
+    <Content Include="IMG\icon-cancel-search-small.gif" />
+    <Content Include="IMG\icon-search-small.gif" />
+    <Content Include="IMG\linea_voucher.bmp" />
+    <Content Include="IMG\logo-small.jpg" />
+    <Content Include="IMG\mail send_30.png" />
+    <Content Include="IMG\ok.gif" />
+    <Content Include="IMG\ok.png" />
+    <Content Include="IMG\titulo_voucher.bmp" />
+    <Content Include="Libraries\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Libraries\Ionic.Zip.dll" />
+    <Content Include="Libraries\NPOI.dll" />
+    <Content Include="Libraries\NPOI.OOXML.dll" />
+    <Content Include="Libraries\NPOI.OOXML.XML" />
+    <Content Include="Libraries\NPOI.OpenXml4Net.dll" />
+    <Content Include="Libraries\NPOI.OpenXml4Net.XML" />
+    <Content Include="Libraries\NPOI.OpenXmlFormats.dll" />
+    <Content Include="Libraries\NPOI.XML">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Pixels\EdicionDePixel.aspx" />
+    <Content Include="Pixels\ListaDePixeles.aspx" />
+    <Content Include="ProcesosMasivos\MassiveUploadGroup.aspx" />
+    <Content Include="Reports\ac-01-cert.jpg" />
+    <Content Include="Reports\ac-01.jpg" />
+    <Content Include="Reports\header-usar-01-01.jpg" />
+    <Content Include="Reports\header-usar2-01.png" />
+    <Content Include="Reports\__URL_para_testear_reportes.txt" />
+    <Content Include="Scripts\ColorPicker\arrow.gif" />
+    <Content Include="Scripts\ColorPicker\cross.gif" />
+    <Content Include="Scripts\ColorPicker\hs.png" />
+    <Content Include="Scripts\ColorPicker\hv.png" />
+    <Content Include="Scripts\ColorPicker\jscolor.js" />
+    <Content Include="Styles\rptCustom.css" />
+    <Content Include="TestOracle.aspx" />
+    <Content Include="Type\EMailContact\EMailContactTypeInformation.aspx" />
+    <Content Include="Type\EMailContact\EMailContactTypeList.aspx" />
+    <Content Include="Type\EMailList\EMailListTypeInformation.aspx" />
+    <Content Include="Type\EMailList\EMailListTypeList.aspx" />
+    <Content Include="UpgradeVariableText\UpgradeVariableTextInformation.aspx" />
+    <Content Include="UpgradeVariableText\UpgradeVariableTextList.aspx" />
+    <Content Include="CountryVisibleText\CountryVisibleTextInformation.aspx" />
+    <Content Include="CountryVisibleText\CountryVisibleTextList.aspx" />
+    <Content Include="CSS\loading.css" />
+    <Content Include="CSS\main.css" />
+    <Content Include="EmailAddress\EmailAddressInformation.aspx" />
+    <Content Include="EmailAddress\EmailAddressList.aspx" />
+    <Content Include="EMailContact\EMailContactInformation.aspx" />
+    <Content Include="EMailContact\EMailContactList.aspx" />
+    <Content Include="FreeTextBox.aspx" />
+    <Content Include="Group\GroupInformation.aspx" />
+    <Content Include="Group\GroupList.aspx" />
+    <Content Include="IMG\ACLogo.PNG" />
+    <Content Include="IMG\b_drop.png" />
+    <Content Include="IMG\delete.gif" />
+    <Content Include="IMG\Empty.gif" />
+    <Content Include="IMG\excel.gif" />
+    <Content Include="IMG\loading.gif" />
+    <Content Include="IMG\loading_animation_liferay.gif" />
+    <Content Include="Legal\LegalList.aspx" />
+    <Content Include="Libraries\AjaxControlToolkit.dll" />
+    <Content Include="Libraries\CapaNegocioDatos.dll" />
+    <Content Include="Libraries\CapaNegocioDatos.XmlSerializers.dll" />
+    <Content Include="Libraries\FrameworkDAC.dll" />
+    <Content Include="Libraries\FreeTextBox.dll" />
+    <Content Include="Libraries\GridViewControl.dll" />
+    <Content Include="Libraries\itextsharp.dll" />
+    <Content Include="Libraries\itextsharp.xtra.dll" />
+    <Content Include="Libraries\log4net.dll" />
+    <Content Include="Libraries\Seguridad.dll" />
+    <Content Include="Libraries\ServerDAC.dll" />
+    <Content Include="Libraries\ServerMSG.dll" />
+    <Content Include="Libraries\ServerTMP.dll" />
+    <Content Include="Libraries\Spring\Common.Logging.dll" />
+    <Content Include="Libraries\Spring\Spring.Aop.dll" />
+    <Content Include="Libraries\Spring\Spring.Core.dll" />
+    <Content Include="Libraries\Spring\Spring.Data.dll" />
+    <Content Include="Libraries\Spring\Spring.Data.NHibernate20.dll" />
+    <Content Include="Libraries\Spring\Spring.Data.NHibernate21.dll" />
+    <Content Include="Libraries\Spring\Spring.Data.NHibernate30.dll" />
+    <Content Include="Libraries\Spring\Spring.Data.NHibernate31.dll" />
+    <Content Include="Libraries\Spring\Spring.Data.NHibernate32.dll" />
+    <Content Include="Libraries\Spring\Spring.Messaging.dll" />
+    <Content Include="Libraries\Spring\Spring.Messaging.Ems.dll" />
+    <Content Include="Libraries\Spring\Spring.Messaging.Nms.dll" />
+    <Content Include="Libraries\Spring\Spring.Scheduling.Quartz.dll" />
+    <Content Include="Libraries\Spring\Spring.Services.dll" />
+    <Content Include="Libraries\Spring\Spring.Template.Velocity.dll" />
+    <Content Include="Libraries\Spring\Spring.Testing.Microsoft.dll" />
+    <Content Include="Libraries\Spring\Spring.Testing.NUnit.dll" />
+    <Content Include="Libraries\Spring\Spring.Web.dll" />
+    <Content Include="Libraries\Spring\Spring.Web.Extensions.dll" />
+    <Content Include="Libraries\Spring\Spring.Web.Mvc.dll" />
+    <Content Include="Libraries\Spring\Spring.Web.Mvc3.dll" />
+    <Content Include="Libraries\WorkFlowLibrary.dll" />
+    <Content Include="ParseTest.aspx" />
+    <Content Include="pdfTest.aspx" />
+    <Content Include="Register\EMailRegister.aspx" />
+    <Content Include="Reports\ACLogo.PNG" />
+    <Content Include="Reports\Associations\ReportAssociations.aspx" />
+    <Content Include="Scripts\jquery.ajax_upload.1.0.min.js" />
+    <Content Include="SessionExpired.aspx" />
+    <Content Include="Signature\SignatureInformation.aspx" />
+    <Content Include="Signature\SignatureList.aspx" />
+    <Content Include="SiteSettings\MailSettings.xml" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Template\TemplateInformation.aspx" />
+    <Content Include="Template\TemplateList.aspx" />
+    <Content Include="Test.aspx" />
+    <Content Include="pdf.ashx" />
+    <Content Include="examples\ejemploNuevoGrupo.csv" />
+    <Content Include="examples\ejemploNuevoGrupo.xls" />
+    <Content Include="Attachment\FixedAttachmentHandler.ashx" />
+    <Content Include="Attachment\StrategyAttachmentHandler.ashx" />
+    <Content Include="Attachment\DownloadData.ashx" />
+    <Content Include="Attachment\TestAttachmentEkitPDF.ashx" />
+    <Content Include="packages.config" />
+    <Content Include="Attachment\BilleteAttachmentHandler.ashx" />
+    <Content Include="Attachment\GetEkitAttachmentHandler.ashx" />
+    <Content Include="Attachment\PolicyWordingAttachmentHandler.ashx" />
+    <None Include="Properties\PublishProfiles\EmailAdmin.pubxml" />
+    <None Include="Web References\EmailSender\EMailSenderService.disco" />
+    <Content Include="Webservice\CascadingDropDown.asmx" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Type\UpgradeVariableText\UpgradeVariableTextTypeInformation.aspx" />
+    <Content Include="Type\UpgradeVariableText\UpgradeVariableTextTypeList.aspx" />
+    <Content Include="Type\CountryVisibleText\CountryVisibleTextTypeInformation.aspx" />
+    <Content Include="Type\CountryVisibleText\CountryVisibleTextTypeList.aspx" />
+    <Content Include="Type\Signature\SignatureTypeInformation.aspx" />
+    <Content Include="Type\Signature\SignatureTypeList.aspx" />
+    <Content Include="examples\ejemploNuevoGrupo.xlsx" />
+    <None Include="Web References\EmailSender\EMailSenderService.wsdl" />
+    <None Include="Web References\EmailSender\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EMailSendProduccion\EMailSenderService.wsdl" />
+    <None Include="Web References\EMailSendProduccion\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administration\Configuration\ProcessManager.aspx.cs">
+      <DependentUpon>ProcessManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Configuration\ProcessManager.aspx.designer.cs">
+      <DependentUpon>ProcessManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Configuration\ValuesManager.aspx.cs">
+      <DependentUpon>ValuesManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Configuration\ValuesManager.aspx.designer.cs">
+      <DependentUpon>ValuesManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\EMailLists\EMailListManager.aspx.cs">
+      <DependentUpon>EMailListManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\EMailLists\EMailListManager.aspx.designer.cs">
+      <DependentUpon>EMailListManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\EmailLogsCapita\EmailLogsCapita.aspx.cs">
+      <DependentUpon>EmailLogsCapita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\EmailLogsCapita\EmailLogsCapita.aspx.designer.cs">
+      <DependentUpon>EmailLogsCapita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\EmailLogsPrecompra\EmailLogPrecompraList.aspx.cs">
+      <DependentUpon>EmailLogPrecompraList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\EmailLogsPrecompra\EmailLogPrecompraList.aspx.designer.cs">
+      <DependentUpon>EmailLogPrecompraList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\EmailLogsPrecompra\FrwEmailPrepurchase.aspx.cs">
+      <DependentUpon>FrwEmailPrepurchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\EmailLogsPrecompra\FrwEmailPrepurchase.aspx.designer.cs">
+      <DependentUpon>FrwEmailPrepurchase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\EmailLogs\EmailLogList.aspx.cs">
+      <DependentUpon>EmailLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\EmailLogs\EmailLogList.aspx.designer.cs">
+      <DependentUpon>EmailLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\EmailLogs\EMailProcessLogList.aspx.cs">
+      <DependentUpon>EMailProcessLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\EmailLogs\EMailProcessLogList.aspx.designer.cs">
+      <DependentUpon>EMailProcessLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\NotSentEmailAgencia\NotSendEmailAgencia.aspx.cs">
+      <DependentUpon>NotSendEmailAgencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\NotSentEmailAgencia\NotSendEmailAgencia.aspx.designer.cs">
+      <DependentUpon>NotSendEmailAgencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AttachmentGroups\AttachmentGroupItem.aspx.cs">
+      <DependentUpon>AttachmentGroupItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AttachmentGroups\AttachmentGroupItem.aspx.designer.cs">
+      <DependentUpon>AttachmentGroupItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AttachmentGroups\ListAttachmentGroup.aspx.cs">
+      <DependentUpon>ListAttachmentGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AttachmentGroups\ListAttachmentGroup.aspx.designer.cs">
+      <DependentUpon>ListAttachmentGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\AttachmentInformation.aspx.cs">
+      <DependentUpon>AttachmentInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Attachment\AttachmentInformation.aspx.designer.cs">
+      <DependentUpon>AttachmentInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\AttachmentList.aspx.cs">
+      <DependentUpon>AttachmentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Attachment\AttachmentList.aspx.designer.cs">
+      <DependentUpon>AttachmentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\DownloadData.ashx.cs">
+      <DependentUpon>DownloadData.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\FixedAttachmentHandler.ashx.cs">
+      <DependentUpon>FixedAttachmentHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\GetEkitAttachmentHandler.ashx.cs">
+      <DependentUpon>GetEkitAttachmentHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\PolicyWordingAttachmentHandler.ashx.cs">
+      <DependentUpon>PolicyWordingAttachmentHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\TestAttachmentEkitPDF.ashx.cs">
+      <DependentUpon>TestAttachmentEkitPDF.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\StrategyAttachmentHandler.ashx.cs">
+      <DependentUpon>StrategyAttachmentHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment\BilleteAttachmentHandler.ashx.cs">
+      <DependentUpon>BilleteAttachmentHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AttachmentGroup\AttachmentGroup.ascx.cs">
+      <DependentUpon>AttachmentGroup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\AttachmentGroup\AttachmentGroup.ascx.designer.cs">
+      <DependentUpon>AttachmentGroup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AttachmentTemplates\AttachmentTemplatesSelector.ascx.cs">
+      <DependentUpon>AttachmentTemplatesSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\AttachmentTemplates\AttachmentTemplatesSelector.ascx.designer.cs">
+      <DependentUpon>AttachmentTemplatesSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ContentAttachmentVariable\ContentAttachment.ascx.cs">
+      <DependentUpon>ContentAttachment.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ContentAttachmentVariable\ContentAttachment.ascx.designer.cs">
+      <DependentUpon>ContentAttachment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DynamicValue\DynamicValueConfig.ascx.cs">
+      <DependentUpon>DynamicValueConfig.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\DynamicValue\DynamicValueConfig.ascx.designer.cs">
+      <DependentUpon>DynamicValueConfig.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\Clausule\ClausuleSelector.ascx.cs">
+      <DependentUpon>ClausuleSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\Clausule\ClausuleSelector.ascx.designer.cs">
+      <DependentUpon>ClausuleSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\Pixel\PixelSelector.ascx.cs">
+      <DependentUpon>PixelSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\Pixel\PixelSelector.ascx.designer.cs">
+      <DependentUpon>PixelSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Image\handlerQR.ashx.cs">
+      <DependentUpon>handlerQR.ashx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Links\EdicionDeLinks.aspx.cs">
+      <DependentUpon>EdicionDeLinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Links\EdicionDeLinks.aspx.designer.cs">
+      <DependentUpon>EdicionDeLinks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Links\ListaDeLinks.aspx.cs">
+      <DependentUpon>ListaDeLinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Links\ListaDeLinks.aspx.designer.cs">
+      <DependentUpon>ListaDeLinks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\NotSent\NotSentEMail.aspx.cs">
+      <DependentUpon>NotSentEMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\NotSent\NotSentEMail.aspx.designer.cs">
+      <DependentUpon>NotSentEMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SendMail\SendMailCapita.aspx.cs">
+      <DependentUpon>SendMailCapita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\SendMail\SendMailCapita.aspx.designer.cs">
+      <DependentUpon>SendMailCapita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SendMail\TestConditionAlert.aspx.cs">
+      <DependentUpon>TestConditionAlert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\SendMail\TestConditionAlert.aspx.designer.cs">
+      <DependentUpon>TestConditionAlert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SendMail\SendMail.aspx.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\SendMail\SendMail.aspx.designer.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SendMail\TestAttach.aspx.cs">
+      <DependentUpon>TestAttach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\SendMail\TestAttach.aspx.designer.cs">
+      <DependentUpon>TestAttach.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SendMail\TestPointsReport.aspx.cs">
+      <DependentUpon>TestPointsReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\SendMail\TestPointsReport.aspx.designer.cs">
+      <DependentUpon>TestPointsReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Zip\EMailLogZip.aspx.cs">
+      <DependentUpon>EMailLogZip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Zip\EMailLogZip.aspx.designer.cs">
+      <DependentUpon>EMailLogZip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Associations\AssociationsInformation.aspx.cs">
+      <DependentUpon>AssociationsInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Associations\AssociationsInformation.aspx.designer.cs">
+      <DependentUpon>AssociationsInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Associations\AssociationsList.aspx.cs">
+      <DependentUpon>AssociationsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Associations\AssociationsList.aspx.designer.cs">
+      <DependentUpon>AssociationsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Associations\AttachmentAssociationsInformation.aspx.cs">
+      <DependentUpon>AttachmentAssociationsInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Associations\AttachmentAssociationsInformation.aspx.designer.cs">
+      <DependentUpon>AttachmentAssociationsInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Associations\AttachmentAssociationsList.aspx.cs">
+      <DependentUpon>AttachmentAssociationsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Associations\AttachmentAssociationsList.aspx.designer.cs">
+      <DependentUpon>AttachmentAssociationsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Associations\BulkLoad.aspx.cs">
+      <DependentUpon>BulkLoad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Associations\BulkLoad.aspx.designer.cs">
+      <DependentUpon>BulkLoad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Associations\Domain\ConditionLine.cs" />
+    <Compile Include="Associations\Domain\Line.cs" />
+    <Compile Include="Associations\Domain\TemplateLine.cs" />
+    <Compile Include="AttachmentReport\MainBenefits.cs">
+      <DependentUpon>MainBenefits.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConditionVariableText\ConditionVariableTextInformation.aspx.cs">
+      <DependentUpon>ConditionVariableTextInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConditionVariableText\ConditionVariableTextInformation.aspx.designer.cs">
+      <DependentUpon>ConditionVariableTextInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConditionVariableText\ConditionVariableTextList.aspx.cs">
+      <DependentUpon>ConditionVariableTextList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConditionVariableText\ConditionVariableTextList.aspx.designer.cs">
+      <DependentUpon>ConditionVariableTextList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Account\AccountDropDown.ascx.cs">
+      <DependentUpon>AccountDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Account\AccountDropDown.ascx.designer.cs">
+      <DependentUpon>AccountDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Account\AccountSelector.ascx.cs">
+      <DependentUpon>AccountSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Account\AccountSelector.ascx.designer.cs">
+      <DependentUpon>AccountSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Associations\AssociationsControl.ascx.cs">
+      <DependentUpon>AssociationsControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Associations\AssociationsControl.ascx.designer.cs">
+      <DependentUpon>AssociationsControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\Capita\CapitaSelector.ascx.cs">
+      <DependentUpon>CapitaSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\Capita\CapitaSelector.ascx.designer.cs">
+      <DependentUpon>CapitaSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\ConditionVariableText\ConditionVariableTextSelector.ascx.cs">
+      <DependentUpon>ConditionVariableTextSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\ConditionVariableText\ConditionVariableTextSelector.ascx.designer.cs">
+      <DependentUpon>ConditionVariableTextSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\TableVariableText\TableVariableSelector.ascx.cs">
+      <DependentUpon>TableVariableSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\TableVariableText\TableVariableSelector.ascx.designer.cs">
+      <DependentUpon>TableVariableSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\UpgradeVariableText\UpgradeVariableTextSelector.ascx.cs">
+      <DependentUpon>UpgradeVariableTextSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\UpgradeVariableText\UpgradeVariableTextSelector.ascx.designer.cs">
+      <DependentUpon>UpgradeVariableTextSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UpgradeVariableText\UpgradeVariableTextDropDown.ascx.cs">
+      <DependentUpon>UpgradeVariableTextDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UpgradeVariableText\UpgradeVariableTextDropDown.ascx.designer.cs">
+      <DependentUpon>UpgradeVariableTextDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UpgradeVariableText\UpgradeVariableTextSelector.ascx.cs">
+      <DependentUpon>UpgradeVariableTextSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UpgradeVariableText\UpgradeVariableTextSelector.ascx.designer.cs">
+      <DependentUpon>UpgradeVariableTextSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UpgradeVariableTextType\UpgradeVariableTextTypeDropDown.ascx.cs">
+      <DependentUpon>UpgradeVariableTextTypeDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UpgradeVariableTextType\UpgradeVariableTextTypeDropDown.ascx.designer.cs">
+      <DependentUpon>UpgradeVariableTextTypeDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UpgradeVariableTextType\UpgradeVariableTextTypeSelector.ascx.cs">
+      <DependentUpon>UpgradeVariableTextTypeSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UpgradeVariableTextType\UpgradeVariableTextTypeSelector.ascx.designer.cs">
+      <DependentUpon>UpgradeVariableTextTypeSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CountryVisibleTextType\CountryVisibleTextTypeDropDown.ascx.cs">
+      <DependentUpon>CountryVisibleTextTypeDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CountryVisibleTextType\CountryVisibleTextTypeDropDown.ascx.designer.cs">
+      <DependentUpon>CountryVisibleTextTypeDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CountryVisibleTextType\CountryVisibleTextTypeSelector.ascx.cs">
+      <DependentUpon>CountryVisibleTextTypeSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CountryVisibleTextType\CountryVisibleTextTypeSelector.ascx.designer.cs">
+      <DependentUpon>CountryVisibleTextTypeSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Country\CountryDropDown.ascx.cs">
+      <DependentUpon>CountryDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Country\CountryDropDown.ascx.designer.cs">
+      <DependentUpon>CountryDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Country\CountrySelector.ascx.cs">
+      <DependentUpon>CountrySelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Country\CountrySelector.ascx.designer.cs">
+      <DependentUpon>CountrySelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Group\GroupControl.ascx.cs">
+      <DependentUpon>GroupControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Group\GroupControl.ascx.designer.cs">
+      <DependentUpon>GroupControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Group\GroupViewer.ascx.cs">
+      <DependentUpon>GroupViewer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Group\GroupViewer.ascx.designer.cs">
+      <DependentUpon>GroupViewer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Picture\PictureUploader.ascx.cs">
+      <DependentUpon>PictureUploader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Picture\PictureUploader.ascx.designer.cs">
+      <DependentUpon>PictureUploader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Preview\pdf.aspx.cs">
+      <DependentUpon>pdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Preview\pdf.aspx.designer.cs">
+      <DependentUpon>pdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Preview\Preview.ascx.cs">
+      <DependentUpon>Preview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Preview\Preview.ascx.designer.cs">
+      <DependentUpon>Preview.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Product\ProductDropDown.ascx.cs">
+      <DependentUpon>ProductDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\ProductDropDown.ascx.designer.cs">
+      <DependentUpon>ProductDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Product\ProductSelector.ascx.cs">
+      <DependentUpon>ProductSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Product\ProductSelector.ascx.designer.cs">
+      <DependentUpon>ProductSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Rate\RateDropDown.ascx.cs">
+      <DependentUpon>RateDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Rate\RateDropDown.ascx.designer.cs">
+      <DependentUpon>RateDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Rate\RateSelector.ascx.cs">
+      <DependentUpon>RateSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Rate\RateSelector.ascx.designer.cs">
+      <DependentUpon>RateSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\Attachment\AttachmentSelector.ascx.cs">
+      <DependentUpon>AttachmentSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\Attachment\AttachmentSelector.ascx.designer.cs">
+      <DependentUpon>AttachmentSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\Contact\ContactSelector.ascx.cs">
+      <DependentUpon>ContactSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\Contact\ContactSelector.ascx.designer.cs">
+      <DependentUpon>ContactSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\CountryVisibleText\CountryVisibleTextSelector.ascx.cs">
+      <DependentUpon>CountryVisibleTextSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\CountryVisibleText\CountryVisibleTextSelector.ascx.designer.cs">
+      <DependentUpon>CountryVisibleTextSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\Image\ImageSelector.ascx.cs">
+      <DependentUpon>ImageSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\Image\ImageSelector.ascx.designer.cs">
+      <DependentUpon>ImageSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\Link\LinkSelector.ascx.cs">
+      <DependentUpon>LinkSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\Link\LinkSelector.ascx.designer.cs">
+      <DependentUpon>LinkSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\Signature\SignatureSelector.ascx.cs">
+      <DependentUpon>SignatureSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\Signature\SignatureSelector.ascx.designer.cs">
+      <DependentUpon>SignatureSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Selectors\VariableText\VariableTextSelector.ascx.cs">
+      <DependentUpon>VariableTextSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Selectors\VariableText\VariableTextSelector.ascx.designer.cs">
+      <DependentUpon>VariableTextSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SignatureType\SignatureTypeDropDown.ascx.cs">
+      <DependentUpon>SignatureTypeDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\SignatureType\SignatureTypeDropDown.ascx.designer.cs">
+      <DependentUpon>SignatureTypeDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabRich\RichTextControl.ascx.cs">
+      <DependentUpon>RichTextControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TabRich\RichTextControl.ascx.designer.cs">
+      <DependentUpon>RichTextControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SignatureType\SignatureTypeSelector.ascx.cs">
+      <DependentUpon>SignatureTypeSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\SignatureType\SignatureTypeSelector.ascx.designer.cs">
+      <DependentUpon>SignatureTypeSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabRich\TabRichTextControl.ascx.cs">
+      <DependentUpon>TabRichTextControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TabRich\TabRichTextControl.ascx.designer.cs">
+      <DependentUpon>TabRichTextControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Template\TabTemplateControl.ascx.cs">
+      <DependentUpon>TabTemplateControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Template\TabTemplateControl.ascx.designer.cs">
+      <DependentUpon>TabTemplateControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Template\TemplateControl.ascx.cs">
+      <DependentUpon>TemplateControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Template\TemplateControl.ascx.designer.cs">
+      <DependentUpon>TemplateControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VariableText\VariableTextDropDown.ascx.cs">
+      <DependentUpon>VariableTextDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\VariableText\VariableTextDropDown.ascx.designer.cs">
+      <DependentUpon>VariableTextDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VariableText\VariableTextSelector.ascx.cs">
+      <DependentUpon>VariableTextSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\VariableText\VariableTextSelector.ascx.designer.cs">
+      <DependentUpon>VariableTextSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pixels\EdicionDePixel.aspx.cs">
+      <DependentUpon>EdicionDePixel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pixels\EdicionDePixel.aspx.designer.cs">
+      <DependentUpon>EdicionDePixel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pixels\ListaDePixeles.aspx.cs">
+      <DependentUpon>ListaDePixeles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pixels\ListaDePixeles.aspx.designer.cs">
+      <DependentUpon>ListaDePixeles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesosMasivos\MassiveUploadGroup.aspx.cs">
+      <DependentUpon>MassiveUploadGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcesosMasivos\MassiveUploadGroup.aspx.designer.cs">
+      <DependentUpon>MassiveUploadGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BrazilCertifiedAttachReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BrazilCertifiedAttachReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrazilCertifiedAttachReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BrazilConditionItem.cs">
+      <DependentUpon>BrazilConditionItem.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BrazilVoucherInformationReport.cs">
+      <DependentUpon>BrazilVoucherInformationReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BrazilBilleteAttachReport.cs">
+      <DependentUpon>BrazilBilleteAttachReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ParticularConditionsOnePageReportPrice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParticularConditionsOnePageReportPrice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VoucherInformationOnePagePriceReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoucherInformationOnePagePriceReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VoucherInformationOnePageReport.cs">
+      <DependentUpon>VoucherInformationOnePageReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ParticularConditionsOnePageReport.cs">
+      <DependentUpon>ParticularConditionsOnePageReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RimacParticularConditionsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RimacParticularConditionsReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RimacParticularConditionsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RimacPasajeros.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RimacPasajeros1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RimacPasajeros.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RimacVoucherAdditionalInformation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RimacVoucherAdditionalInformation1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RimacVoucherAdditionalInformation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RimacVoucherInformation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RimacVoucherInformation1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RimacVoucherInformation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VoucherTag.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VoucherTag1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoucherTag.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TestOracle.aspx.cs">
+      <DependentUpon>TestOracle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestOracle.aspx.designer.cs">
+      <DependentUpon>TestOracle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\EMailContact\EMailContactTypeInformation.aspx.cs">
+      <DependentUpon>EMailContactTypeInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\EMailContact\EMailContactTypeInformation.aspx.designer.cs">
+      <DependentUpon>EMailContactTypeInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\EMailContact\EMailContactTypeList.aspx.cs">
+      <DependentUpon>EMailContactTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\EMailContact\EMailContactTypeList.aspx.designer.cs">
+      <DependentUpon>EMailContactTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\EMailList\EMailListTypeInformation.aspx.cs">
+      <DependentUpon>EMailListTypeInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\EMailList\EMailListTypeInformation.aspx.designer.cs">
+      <DependentUpon>EMailListTypeInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\EMailList\EMailListTypeList.aspx.cs">
+      <DependentUpon>EMailListTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\EMailList\EMailListTypeList.aspx.designer.cs">
+      <DependentUpon>EMailListTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpgradeVariableText\UpgradeVariableTextInformation.aspx.cs">
+      <DependentUpon>UpgradeVariableTextInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpgradeVariableText\UpgradeVariableTextInformation.aspx.designer.cs">
+      <DependentUpon>UpgradeVariableTextInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpgradeVariableText\UpgradeVariableTextList.aspx.cs">
+      <DependentUpon>UpgradeVariableTextList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpgradeVariableText\UpgradeVariableTextList.aspx.designer.cs">
+      <DependentUpon>UpgradeVariableTextList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CountryVisibleText\CountryVisibleTextInformation.aspx.cs">
+      <DependentUpon>CountryVisibleTextInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CountryVisibleText\CountryVisibleTextInformation.aspx.designer.cs">
+      <DependentUpon>CountryVisibleTextInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CountryVisibleText\CountryVisibleTextList.aspx.cs">
+      <DependentUpon>CountryVisibleTextList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CountryVisibleText\CountryVisibleTextList.aspx.designer.cs">
+      <DependentUpon>CountryVisibleTextList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailAddress\EmailAddressInformation.aspx.cs">
+      <DependentUpon>EmailAddressInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailAddress\EmailAddressInformation.aspx.designer.cs">
+      <DependentUpon>EmailAddressInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailAddress\EmailAddressList.aspx.cs">
+      <DependentUpon>EmailAddressList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailAddress\EmailAddressList.aspx.designer.cs">
+      <DependentUpon>EmailAddressList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EMailContact\EMailContactInformation.aspx.cs">
+      <DependentUpon>EMailContactInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EMailContact\EMailContactInformation.aspx.designer.cs">
+      <DependentUpon>EMailContactInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EMailContact\EMailContactList.aspx.cs">
+      <DependentUpon>EMailContactList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EMailContact\EMailContactList.aspx.designer.cs">
+      <DependentUpon>EMailContactList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FreeTextBox.aspx.cs">
+      <DependentUpon>FreeTextBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FreeTextBox.aspx.designer.cs">
+      <DependentUpon>FreeTextBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Group\GroupInformation.aspx.cs">
+      <DependentUpon>GroupInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Group\GroupInformation.aspx.designer.cs">
+      <DependentUpon>GroupInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Group\GroupList.aspx.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Group\GroupList.aspx.designer.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Image\ContentImageHandler.ashx.cs">
+      <DependentUpon>ContentImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Image\SaveImageHandler.ashx.cs">
+      <DependentUpon>SaveImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Image\ShowImageHandler.ashx.cs">
+      <DependentUpon>ShowImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Legal\LegalList.aspx.cs">
+      <DependentUpon>LegalList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Legal\LegalList.aspx.designer.cs">
+      <DependentUpon>LegalList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ParseTest.aspx.cs">
+      <DependentUpon>ParseTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ParseTest.aspx.designer.cs">
+      <DependentUpon>ParseTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pdf.ashx.cs">
+      <DependentUpon>pdf.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="pdfTest.aspx.cs">
+      <DependentUpon>pdfTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pdfTest.aspx.designer.cs">
+      <DependentUpon>pdfTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Register\EMailRegister.aspx.cs">
+      <DependentUpon>EMailRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register\EMailRegister.aspx.designer.cs">
+      <DependentUpon>EMailRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Associations\ReportAssociations.aspx.cs">
+      <DependentUpon>ReportAssociations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Associations\ReportAssociations.aspx.designer.cs">
+      <DependentUpon>ReportAssociations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EmailReport.cs">
+      <DependentUpon>EmailReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ParticularConditionsReport.cs">
+      <DependentUpon>ParticularConditionsReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\USAReport.cs">
+      <DependentUpon>USAReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Voucher.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Voucher.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\VoucherInformationReport.cs">
+      <DependentUpon>VoucherInformationReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SessionExpired.aspx.cs">
+      <DependentUpon>SessionExpired.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionExpired.aspx.designer.cs">
+      <DependentUpon>SessionExpired.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signature\SignatureInformation.aspx.cs">
+      <DependentUpon>SignatureInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureInformation.aspx.designer.cs">
+      <DependentUpon>SignatureInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signature\SignatureList.aspx.cs">
+      <DependentUpon>SignatureList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureList.aspx.designer.cs">
+      <DependentUpon>SignatureList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Template\TemplateInformation.aspx.cs">
+      <DependentUpon>TemplateInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\TemplateInformation.aspx.designer.cs">
+      <DependentUpon>TemplateInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Template\TemplateList.aspx.cs">
+      <DependentUpon>TemplateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\TemplateList.aspx.designer.cs">
+      <DependentUpon>TemplateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\UpgradeVariableText\UpgradeVariableTextTypeInformation.aspx.cs">
+      <DependentUpon>UpgradeVariableTextTypeInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\UpgradeVariableText\UpgradeVariableTextTypeInformation.aspx.designer.cs">
+      <DependentUpon>UpgradeVariableTextTypeInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\UpgradeVariableText\UpgradeVariableTextTypeList.aspx.cs">
+      <DependentUpon>UpgradeVariableTextTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\UpgradeVariableText\UpgradeVariableTextTypeList.aspx.designer.cs">
+      <DependentUpon>UpgradeVariableTextTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\CountryVisibleText\CountryVisibleTextTypeInformation.aspx.cs">
+      <DependentUpon>CountryVisibleTextTypeInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\CountryVisibleText\CountryVisibleTextTypeInformation.aspx.designer.cs">
+      <DependentUpon>CountryVisibleTextTypeInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\CountryVisibleText\CountryVisibleTextTypeList.aspx.cs">
+      <DependentUpon>CountryVisibleTextTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\CountryVisibleText\CountryVisibleTextTypeList.aspx.designer.cs">
+      <DependentUpon>CountryVisibleTextTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\Signature\SignatureTypeInformation.aspx.cs">
+      <DependentUpon>SignatureTypeInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\Signature\SignatureTypeInformation.aspx.designer.cs">
+      <DependentUpon>SignatureTypeInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Type\Signature\SignatureTypeList.aspx.cs">
+      <DependentUpon>SignatureTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Type\Signature\SignatureTypeList.aspx.designer.cs">
+      <DependentUpon>SignatureTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ContentUtils.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\InternacionalUtils.cs" />
+    <Compile Include="Utils\RichTextUtils.cs" />
+    <Compile Include="Utils\SessionManager.cs" />
+    <Compile Include="Utils\TagUtils.cs" />
+    <Compile Include="Utils\TreeViewUtils.cs" />
+    <Compile Include="Web References\EmailSender\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EMailSendProduccion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Webservice\CascadingDropDown.asmx.cs">
+      <DependentUpon>CascadingDropDown.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controls\EmailListManager\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EMailContact\App_LocalResources\en\EMailContactList.aspx.resx" />
+    <Content Include="EMailContact\App_LocalResources\en\EMailContactInformation.aspx.resx" />
+    <Content Include="EMailContact\App_LocalResources\es\EMailContactList.aspx.es.resx" />
+    <Content Include="EMailContact\App_LocalResources\es\EMailContactInformation.aspx.es.resx" />
+    <Content Include="EMailContact\App_LocalResources\pt\EMailContactList.aspx.pt.resx" />
+    <Content Include="EMailContact\App_LocalResources\pt\EMailContactInformation.aspx.pt.resx" />
+    <Content Include="Controls\Template\App_LocalResources\en\TemplateControl.ascx.resx" />
+    <Content Include="Controls\Template\App_LocalResources\es\TemplateControl.ascx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Controls\Template\App_LocalResources\pt\TemplateControl.ascx.pt.resx" />
+    <Content Include="Controls\Selectors\Link\App_LocalResources\en\LinkSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\Link\App_LocalResources\es\LinkSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\Link\App_LocalResources\pt\LinkSelector.ascx.pt.resx" />
+    <Content Include="Controls\Selectors\Image\App_LocalResources\en\ImageSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\Image\App_LocalResources\es\ImageSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\Image\App_LocalResources\pt\ImageSelector.ascx.pt.resx" />
+    <Content Include="Controls\Selectors\Contact\App_LocalResources\en\ContactSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\Contact\App_LocalResources\es\ContactSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\Contact\App_LocalResources\pt\ContactSelector.ascx.pt.resx" />
+    <Content Include="Controls\Selectors\Signature\App_LocalResources\en\SignatureSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\Signature\App_LocalResources\es\SignatureSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\Signature\App_LocalResources\pt\SignatureSelector.ascx.pt.resx" />
+    <Content Include="Controls\Selectors\VariableText\App_LocalResources\en\VariableTextSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\VariableText\App_LocalResources\es\VariableTextSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\VariableText\App_LocalResources\pt\VariableTextSelector.ascx.pt.resx" />
+    <Content Include="Controls\Selectors\Attachment\App_LocalResources\en\AttachmentSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\Attachment\App_LocalResources\es\AttachmentSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\Attachment\App_LocalResources\pt\AttachmentSelector.ascx.pt.resx" />
+    <Content Include="Controls\Country\App_LocalResources\en\CountrySelector.ascx.resx" />
+    <Content Include="Controls\Country\App_LocalResources\es\CountrySelector.ascx.es.resx" />
+    <Content Include="Controls\Country\App_LocalResources\pt\CountrySelector.ascx.pt.resx" />
+    <Content Include="Controls\SignatureType\App_LocalResources\en\SignatureTypeSelector.ascx.resx" />
+    <Content Include="Controls\SignatureType\App_LocalResources\es\SignatureTypeSelector.ascx.es.resx" />
+    <Content Include="Controls\SignatureType\App_LocalResources\pt\SignatureTypeSelector.ascx.pt.resx" />
+    <Content Include="Controls\Account\App_LocalResources\en\AccountSelector.ascx.resx" />
+    <Content Include="Controls\Account\App_LocalResources\es\AccountSelector.ascx.es.resx" />
+    <Content Include="Controls\Account\App_LocalResources\pt\AccountSelector.ascx.pt.resx" />
+    <Content Include="Controls\Group\App_LocalResources\en\GroupControl.ascx.resx" />
+    <Content Include="Controls\Group\App_LocalResources\es\GroupControl.ascx.es.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Controls\Group\App_LocalResources\pt\GroupControl.ascx.pt.resx" />
+    <Content Include="Controls\Preview\App_LocalResources\en\Preview.ascx.resx" />
+    <Content Include="Controls\Preview\App_LocalResources\es\Preview.ascx.es.resx" />
+    <Content Include="Controls\Preview\App_LocalResources\pt\Preview.ascx.pt.resx" />
+    <Content Include="Controls\Product\App_LocalResources\en\ProductSelector.ascx.resx" />
+    <Content Include="Controls\Product\App_LocalResources\es\ProductSelector.ascx.es.resx" />
+    <Content Include="Controls\Product\App_LocalResources\pt\ProductSelector.ascx.pt.resx" />
+    <Content Include="Group\App_LocalResources\en\GroupList.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Group\App_LocalResources\en\GroupInformation.aspx.resx" />
+    <Content Include="Group\App_LocalResources\es\GroupList.aspx.es.resx" />
+    <Content Include="Group\App_LocalResources\es\GroupInformation.aspx.es.resx" />
+    <Content Include="Group\App_LocalResources\pt\GroupList.aspx.pt.resx" />
+    <Content Include="Group\App_LocalResources\pt\GroupInformation.aspx.pt.resx" />
+    <Content Include="Controls\Group\App_LocalResources\en\GroupViewer.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Controls\Group\App_LocalResources\es\GroupViewer.ascx.es.resx" />
+    <Content Include="Controls\Group\App_LocalResources\pt\GroupViewer.ascx.pt.resx" />
+    <Content Include="Associations\App_LocalResources\en\AssociationsInformation.aspx.resx" />
+    <Content Include="Associations\App_LocalResources\en\AssociationsList.aspx.resx" />
+    <Content Include="Associations\App_LocalResources\es\AssociationsInformation.aspx.es.resx" />
+    <Content Include="Associations\App_LocalResources\es\AssociationsList.aspx.es.resx" />
+    <Content Include="Associations\App_LocalResources\pt\AssociationsInformation.aspx.pt.resx" />
+    <Content Include="Associations\App_LocalResources\pt\AssociationsList.aspx.pt.resx" />
+    <Content Include="Associations\App_LocalResources\en\AttachmentAssociationsInformation.aspx.resx" />
+    <Content Include="Associations\App_LocalResources\en\AttachmentAssociationsList.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Associations\App_LocalResources\es\AttachmentAssociationsInformation.aspx.es.resx" />
+    <Content Include="Associations\App_LocalResources\es\AttachmentAssociationsList.aspx.es.resx" />
+    <Content Include="Associations\App_LocalResources\pt\AttachmentAssociationsList.aspx.pt.resx" />
+    <Content Include="Associations\App_LocalResources\pt\AttachmentAssociationsInformation.aspx.pt.resx" />
+    <Content Include="Associations\App_LocalResources\en\BulkLoad.aspx.resx" />
+    <Content Include="Associations\App_LocalResources\es\BulkLoad.aspx.es.resx" />
+    <Content Include="Associations\App_LocalResources\pt\BulkLoad.aspx.pt.resx" />
+    <Content Include="Administration\EmailLogs\App_LocalResources\en\EmailLogList.aspx.resx" />
+    <Content Include="Administration\EmailLogs\App_LocalResources\es\EmailLogList.aspx.es.resx" />
+    <Content Include="Administration\EmailLogs\App_LocalResources\pt\EmailLogList.aspx.pt.resx" />
+    <Content Include="Administration\NotSent\App_LocalResources\en\NotSentEMail.aspx.resx" />
+    <Content Include="Administration\NotSent\App_LocalResources\es\NotSentEMail.aspx.es.resx" />
+    <Content Include="Administration\NotSent\App_LocalResources\pt\NotSentEMail.aspx.pt.resx" />
+    <Content Include="Administration\EMailLists\App_LocalResources\es\EMailListManager.aspx.es.resx" />
+    <Content Include="Administration\EMailLists\App_LocalResources\en\EMailListManager.aspx.resx" />
+    <Content Include="Administration\EMailLists\App_LocalResources\pt\EMailListManager.aspx.pt.resx" />
+    <Content Include="AttachmentReport\MainBenefits.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MainBenefits.cs</LastGenOutput>
+    </Content>
+    <Content Include="Controls\Template\App_LocalResources\en\TabTemplateControl.ascx.resx" />
+    <Content Include="Controls\Template\App_LocalResources\es\TabTemplateControl.ascx.es.resx" />
+    <Content Include="Controls\Template\App_LocalResources\pt\TabTemplateControl.ascx.pt.resx" />
+    <Content Include="Controls\Associations\App_LocalResources\en\AssociationsControl.ascx.resx" />
+    <Content Include="Controls\Associations\App_LocalResources\es\AssociationsControl.ascx.es.resx" />
+    <Content Include="Controls\Associations\App_LocalResources\pt\AssociationsControl.ascx.pt.resx" />
+    <Content Include="EmailAddress\App_LocalResources\en\EmailAddressInformation.aspx.resx" />
+    <Content Include="EmailAddress\App_LocalResources\en\EmailAddressList.aspx.resx" />
+    <Content Include="EmailAddress\App_LocalResources\es\EmailAddressList.aspx.es.resx" />
+    <Content Include="EmailAddress\App_LocalResources\es\EmailAddressInformation.aspx.es.resx" />
+    <Content Include="EmailAddress\App_LocalResources\pt\EmailAddressInformation.aspx.pt.resx" />
+    <Content Include="EmailAddress\App_LocalResources\pt\EmailAddressList.aspx.pt.resx" />
+    <Content Include="Controls\Selectors\CountryVisibleText\App_LocalResources\en\CountryVisibleTextSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\CountryVisibleText\App_LocalResources\es\CountryVisibleTextSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\CountryVisibleText\App_LocalResources\pt\CountryVisibleTextSelector.ascx.pt.resx" />
+    <Content Include="Controls\CountryVisibleTextType\App_LocalResources\en\CountryVisibleTextTypeSelector.ascx.resx" />
+    <Content Include="Controls\CountryVisibleTextType\App_LocalResources\es\CountryVisibleTextTypeSelector.ascx.es.resx" />
+    <Content Include="Controls\CountryVisibleTextType\App_LocalResources\pt\CountryVisibleTextTypeSelector.ascx.pt.resx" />
+    <Content Include="CountryVisibleText\App_LocalResources\en\CountryVisibleTextList.aspx.resx" />
+    <Content Include="CountryVisibleText\App_LocalResources\en\CountryVisibleTextInformation.aspx.resx" />
+    <Content Include="CountryVisibleText\App_LocalResources\es\CountryVisibleTextInformation.aspx.es.resx" />
+    <Content Include="CountryVisibleText\App_LocalResources\es\CountryVisibleTextList.aspx.es.resx" />
+    <Content Include="CountryVisibleText\App_LocalResources\pt\CountryVisibleTextList.aspx.pt.resx" />
+    <Content Include="CountryVisibleText\App_LocalResources\pt\CountryVisibleTextInformation.aspx.pt.resx" />
+    <Content Include="Controls\UpgradeVariableTextType\App_LocalResources\en\UpgradeVariableTextTypeSelector.ascx.resx" />
+    <Content Include="Controls\UpgradeVariableTextType\App_LocalResources\es\UpgradeVariableTextTypeSelector.ascx.es.resx" />
+    <Content Include="Controls\UpgradeVariableTextType\App_LocalResources\pt\UpgradeVariableTextTypeSelector.ascx.pt.resx" />
+    <Content Include="Controls\Selectors\UpgradeVariableText\App_LocalResources\en\UpgradeVariableTextSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\UpgradeVariableText\App_LocalResources\es\UpgradeVariableTextSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\UpgradeVariableText\App_LocalResources\pt\UpgradeVariableTextSelector.ascx.pt.resx" />
+    <Content Include="UpgradeVariableText\App_LocalResources\en\UpgradeVariableTextInformation.aspx.resx" />
+    <Content Include="UpgradeVariableText\App_LocalResources\en\UpgradeVariableTextList.aspx.resx" />
+    <Content Include="UpgradeVariableText\App_LocalResources\es\UpgradeVariableTextInformation.aspx.es.resx" />
+    <Content Include="UpgradeVariableText\App_LocalResources\es\UpgradeVariableTextList.aspx.es.resx" />
+    <Content Include="UpgradeVariableText\App_LocalResources\pt\UpgradeVariableTextInformation.aspx.pt.resx" />
+    <Content Include="UpgradeVariableText\App_LocalResources\pt\UpgradeVariableTextList.aspx.pt.resx" />
+    <Content Include="Controls\UpgradeVariableText\App_LocalResources\en\UpgradeVariableTextSelector.ascx.resx" />
+    <Content Include="Controls\UpgradeVariableText\App_LocalResources\es\UpgradeVariableTextSelector.ascx.es.resx" />
+    <Content Include="Controls\UpgradeVariableText\App_LocalResources\pt\UpgradeVariableTextSelector.ascx.pt.resx" />
+    <Content Include="Controls\Selectors\TableVariableText\App_LocalResources\es\TableVariableSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\TableVariableText\App_LocalResources\en\TableVariableSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\TableVariableText\App_LocalResources\pt\TableVariableSelector.ascx.pt.resx" />
+    <Content Include="ProcesosMasivos\App_LocalResources\MassiveUploadGroup.aspx.resx" />
+    <Content Include="ProcesosMasivos\App_LocalResources\MassiveUploadGroup.aspx.en.resx" />
+    <Content Include="ProcesosMasivos\App_LocalResources\MassiveUploadGroup.aspx.pt.resx" />
+    <Content Include="ConditionVariableText\App_LocalResources\es\ConditionVariableTextInformation.aspx.es.resx" />
+    <Content Include="ConditionVariableText\App_LocalResources\en\ConditionVariableTextInformation.aspx.resx" />
+    <Content Include="ConditionVariableText\App_LocalResources\pt\ConditionVariableTextInformation.aspx.pt.resx" />
+    <Content Include="ConditionVariableText\App_LocalResources\en\ConditionVariableTextList.aspx.resx" />
+    <Content Include="ConditionVariableText\App_LocalResources\es\ConditionVariableTextList.aspx.es.resx" />
+    <Content Include="ConditionVariableText\App_LocalResources\pt\ConditionVariableTextList.aspx.pt.resx" />
+    <Content Include="Controls\Selectors\ConditionVariableText\App_LocalResources\en\ConditionVariableTextSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\ConditionVariableText\App_LocalResources\es\ConditionVariableTextSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\ConditionVariableText\App_LocalResources\pt\ConditionVariableTextSelector.ascx.pt.resx" />
+    <Content Include="Controls\VariableText\App_LocalResources\VariableTextSelector.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Controls\VariableText\App_LocalResources\VariableTextDropDown.ascx.resx" />
+    <Content Include="Administration\EmailLogsPrecompra\App_LocalResources\EmailLogPrecompraList.aspx.resx" />
+    <Content Include="Administration\EmailLogsPrecompra\App_LocalResources\FrwEmailPrepurchase.aspx.resx" />
+    <Content Include="Administration\SendMail\App_LocalResources\en\SendMail.aspx.resx" />
+    <Content Include="Administration\SendMail\App_LocalResources\es\SendMail.aspx.es.resx" />
+    <Content Include="Administration\SendMail\App_LocalResources\pt\SendMail.aspx.pt.resx" />
+    <Content Include="Administration\SendMail\App_LocalResources\en\SendMailCapita.aspx.resx" />
+    <Content Include="Administration\SendMail\App_LocalResources\es\SendMailCapita.aspx.es.resx" />
+    <Content Include="Administration\SendMail\App_LocalResources\pt\SendMailCapita.aspx.pt.resx" />
+    <Content Include="Controls\Selectors\Capita\App_LocalResources\CapitaSelector.ascx.resx" />
+    <Content Include="Controls\Selectors\Capita\App_LocalResources\CapitaSelector.ascx.es.resx" />
+    <Content Include="Controls\Selectors\Capita\App_LocalResources\CapitaSelector.ascx.pt.resx" />
+    <Content Include="Administration\EmailLogsCapita\App_LocalResources\EmailLogsCapita.aspx.resx" />
+    <Content Include="Signature\App_LocalResources\en\SignatureList.aspx.resx" />
+    <Content Include="Signature\App_LocalResources\es\SignatureList.aspx.es.resx" />
+    <Content Include="Signature\App_LocalResources\pt\SignatureList.aspx.pt.resx" />
+    <Content Include="Signature\App_LocalResources\es\SignatureInformation.aspx.es.resx" />
+    <Content Include="Signature\App_LocalResources\en\SignatureInformation.aspx.resx" />
+    <Content Include="Signature\App_LocalResources\pt\SignatureInformation.aspx.pt.resx" />
+    <Content Include="Template\App_LocalResources\es\TemplateList.aspx.es.resx" />
+    <Content Include="Template\App_LocalResources\en\TemplateList.aspx.resx" />
+    <Content Include="Template\App_LocalResources\pt\TemplateList.aspx.pt.resx" />
+    <Content Include="Template\App_LocalResources\pt\TemplateInformation.aspx.pt.resx" />
+    <Content Include="Template\App_LocalResources\en\TemplateInformation.aspx.resx" />
+    <Content Include="Template\App_LocalResources\es\TemplateInformation.aspx.es.resx" />
+    <Content Include="Register\App_LocalResources\en\EMailRegister.aspx.resx" />
+    <Content Include="Register\App_LocalResources\es\EMailRegister.aspx.es.resx" />
+    <Content Include="Register\App_LocalResources\pt\EMailRegister.aspx.pt.resx" />
+    <Content Include="Reports\EmailReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EmailReport.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\ParticularConditionsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ParticularConditionsReport.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\USAReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>USAReport.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\Voucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Voucher.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\VoucherInformationReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VoucherInformationReport.cs</LastGenOutput>
+    </Content>
+    <Content Include="Type\Signature\App_LocalResources\en\SignatureTypeInformation.aspx.resx" />
+    <Content Include="Type\Signature\App_LocalResources\en\SignatureTypeList.aspx.resx" />
+    <Content Include="Type\Signature\App_LocalResources\es\SignatureTypeList.aspx.es.resx" />
+    <Content Include="Type\Signature\App_LocalResources\es\SignatureTypeInformation.aspx.es.resx" />
+    <Content Include="Type\Signature\App_LocalResources\pt\SignatureTypeInformation.aspx.pt.resx" />
+    <Content Include="Type\Signature\App_LocalResources\pt\SignatureTypeList.aspx.pt.resx" />
+    <Content Include="Type\CountryVisibleText\App_LocalResources\es\CountryVisibleTextTypeList.aspx.es.resx" />
+    <Content Include="Type\CountryVisibleText\App_LocalResources\en\CountryVisibleTextTypeList.aspx.resx" />
+    <Content Include="Type\CountryVisibleText\App_LocalResources\pt\CountryVisibleTextTypeList.aspx.pt.resx" />
+    <Content Include="Type\CountryVisibleText\App_LocalResources\en\CountryVisibleTextTypeInformation.aspx.resx" />
+    <Content Include="Type\CountryVisibleText\App_LocalResources\es\CountryVisibleTextTypeInformation.aspx.es.resx" />
+    <Content Include="Type\CountryVisibleText\App_LocalResources\pt\CountryVisibleTextTypeInformation.aspx.pt.resx" />
+    <Content Include="Type\UpgradeVariableText\App_LocalResources\en\UpgradeVariableTextTypeInformation.aspx.resx" />
+    <Content Include="Type\UpgradeVariableText\App_LocalResources\en\UpgradeVariableTextTypeList.aspx.resx" />
+    <Content Include="Type\UpgradeVariableText\App_LocalResources\es\UpgradeVariableTextTypeInformation.aspx.es.resx" />
+    <Content Include="Type\UpgradeVariableText\App_LocalResources\es\UpgradeVariableTextTypeList.aspx.es.resx" />
+    <Content Include="Type\UpgradeVariableText\App_LocalResources\pt\UpgradeVariableTextTypeInformation.aspx.pt.resx" />
+    <Content Include="Type\UpgradeVariableText\App_LocalResources\pt\UpgradeVariableTextTypeList.aspx.pt.resx" />
+    <Content Include="Type\EMailList\App_LocalResources\en\EMailListTypeList.aspx.resx" />
+    <Content Include="Type\EMailList\App_LocalResources\es\EMailListTypeList.aspx.es.resx" />
+    <Content Include="Type\EMailList\App_LocalResources\pt\EMailListTypeList.aspx.pt.resx" />
+    <Content Include="Type\EMailList\App_LocalResources\en\EMailListTypeInformation.aspx.resx" />
+    <Content Include="Type\EMailList\App_LocalResources\es\EMailListTypeInformation.aspx.es.resx" />
+    <Content Include="Type\EMailList\App_LocalResources\pt\EMailListTypeInformation.aspx.pt.resx" />
+    <Content Include="Reports\Associations\App_LocalResources\es\ReportAssociations.aspx.es.resx" />
+    <Content Include="Reports\Associations\App_LocalResources\en\ReportAssociations.aspx.resx" />
+    <Content Include="Reports\Associations\App_LocalResources\pt\ReportAssociations.aspx.pt.resx" />
+    <Content Include="Reports\BrazilConditionItem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BrazilConditionItem.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\BrazilVoucherInformationReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BrazilVoucherInformationReport.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\BrazilCertifiedAttachReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BrazilCertifiedAttachReport1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\RimacParticularConditionsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RimacParticularConditionsReport1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\RimacPasajeros.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RimacPasajeros1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\RimacVoucherAdditionalInformation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RimacVoucherAdditionalInformation1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\RimacVoucherInformation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RimacVoucherInformation1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reports\VoucherTag.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VoucherTag1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\ContentImageHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\ShowImageHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\SaveImageHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EMailBackEnd\EMailAdmin.BackEnd.csproj">
+      <Project>{47709BA3-82D7-497C-BEC1-30D0EC5D3929}</Project>
+      <Name>EMailAdmin.BackEnd</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteSettings\ConnectionStrings.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteSettings\AppSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteSettings\Spring.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteSettings\Log4Net.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:53412/EMailSenderService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EmailSender\</RelPath>
+      <UpdateFromURL>http://localhost:53412/EMailSenderService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EMailAdmin_EMailSender_EMailSenderService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://mailservice.assist-card.com/EMailSenderService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EMailSendProduccion\</RelPath>
+      <UpdateFromURL>http://mailservice.assist-card.com/EMailSenderService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EMailAdmin_EMailSendProduccion_EMailSenderService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Attachment\App_LocalResources\en\AttachmentInformation.aspx.resx" />
+    <Content Include="Attachment\App_LocalResources\en\AttachmentList.aspx.resx" />
+    <Content Include="Attachment\App_LocalResources\es\AttachmentInformation.aspx.es.resx" />
+    <Content Include="Attachment\App_LocalResources\es\AttachmentList.aspx.es.resx" />
+    <Content Include="Attachment\App_LocalResources\pt\AttachmentInformation.aspx.pt.resx" />
+    <Content Include="Attachment\App_LocalResources\pt\AttachmentList.aspx.pt.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\ParticularConditionsOnePageReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ParticularConditionsOnePageReport.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\VoucherInformationOnePageReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VoucherInformationOnePageReport.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\VoucherInformationOnePagePriceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VoucherInformationOnePagePriceReport.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\ParticularConditionsOnePageReportPrice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ParticularConditionsOnePageReportPrice.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\BrazilBilleteAttachReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BrazilBilleteAttachReport.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\DynamicValue\App_LocalResources\en\DynamicValueConfig.ascx.resx" />
+    <Content Include="Controls\DynamicValue\App_LocalResources\es\DynamicValueConfig.es.ascx.resx" />
+    <Content Include="Controls\Product\App_LocalResources\pt\DynamicValueConfig.ascx.resx" />
+    <Content Include="Controls\DynamicValue\App_LocalResources\pt\DynamicValueConfig.pt.ascx.resx" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Admin.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Admin.Common.1.0.0\lib\net46\Admin.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxControlToolkit, Version=4.1.60501.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Componentes\Dlls\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CapaNegocioDatos, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CapaNegocioDatos.1.0.1\lib\net40\CapaNegocioDatos.dll</HintPath>
+    </Reference>
+    <Reference Include="CondicionesParser">
+      <HintPath>..\..\Condiciones\CondicionesParser\bin\Debug\CondicionesParser.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsultasGenerales.Backend, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConsultasGenerales.Backend.1.0.0\lib\net46\ConsultasGenerales.Backend.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsultasGenerales.Dto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConsultasGenerales.Dto.1.0.0\lib\net45\ConsultasGenerales.Dto.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DTOMapper, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DTOMapper.1.1.3\lib\net462\DTOMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicWsSetup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicWsSetup.1.0.0\lib\net40\DynamicWsSetup.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameworkDAC, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FrameworkDAC.1.1.0\lib\net462\FrameworkDAC.dll</HintPath>
+    </Reference>
+    <Reference Include="FreeTextBox, Version=3.3.1.12354, Culture=neutral, PublicKeyToken=5962a4e684a48b87, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\FreeTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="GridViewControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Componentes\Dlls\GridViewControl.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Componentes\Dlls\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Componentes\Dlls\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra, Version=5.2.1.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Componentes\Dlls\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Componentes\Dlls\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MenuControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MenuControl.1.0.0\lib\net40\MenuControl.dll</HintPath>
+    </Reference>
+    <Reference Include="MenuPortalLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MenuPortalLibrary.1.0.0\lib\net40\MenuPortalLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\devops\repos\Dlls\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\devops\repos\Dlls\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\devops\repos\Dlls\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\devops\repos\Dlls\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="RedsysAPI">
+      <HintPath>..\..\..\..\devops\repos\Dlls\RedsysAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Seguridad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Seguridad.1.0.0\lib\net20\Seguridad.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServerDAC, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServerDAC.1.1.0\lib\net462\ServerDAC.dll</HintPath>
+    </Reference>
+    <Reference Include="ServerMSG, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServerMSG.1.0.0\lib\net40\ServerMSG.dll</HintPath>
+    </Reference>
+    <Reference Include="ServerTMP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServerTMP.1.0.0\lib\net40\ServerTMP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WorkFlowLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WorkFlowLibrary.1.0.0\lib\net40\WorkFlowLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>19809</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

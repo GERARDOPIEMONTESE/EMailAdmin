@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BrazilConditionObject" targetNamespace="http://tempuri.org/BrazilConditionObject.xsd" xmlns:mstns="http://tempuri.org/BrazilConditionObject.xsd" xmlns="http://tempuri.org/BrazilConditionObject.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BrazilConditionObject" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BrazilConditionObject" msprop:Generator_UserDSName="BrazilConditionObject">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ConditionsReportTitle" msprop:Generator_ColumnVarNameInTable="columnConditionsReportTitle" msprop:Generator_ColumnPropNameInRow="ConditionsReportTitle" msprop:Generator_ColumnPropNameInTable="ConditionsReportTitleColumn" msprop:Generator_UserColumnName="ConditionsReportTitle" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="Text" msprop:Generator_ColumnVarNameInTable="columnText" msprop:Generator_ColumnPropNameInRow="Text" msprop:Generator_ColumnPropNameInTable="TextColumn" msprop:Generator_UserColumnName="Text" type="xs:string" minOccurs="0" />
+              <xs:element name="Leyend" msprop:Generator_ColumnVarNameInTable="columnLeyend" msprop:Generator_ColumnPropNameInRow="Leyend" msprop:Generator_ColumnPropNameInTable="LeyendColumn" msprop:Generator_UserColumnName="Leyend" type="xs:string" minOccurs="0" />
+              <xs:element name="Header" msprop:Generator_ColumnVarNameInTable="columnHeader" msprop:Generator_ColumnPropNameInRow="Header" msprop:Generator_ColumnPropNameInTable="HeaderColumn" msprop:Generator_UserColumnName="Header" type="xs:string" minOccurs="0" />
+              <xs:element name="Footer" msprop:Generator_ColumnVarNameInTable="columnFooter" msprop:Generator_ColumnPropNameInRow="Footer" msprop:Generator_ColumnPropNameInTable="FooterColumn" msprop:Generator_UserColumnName="Footer" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

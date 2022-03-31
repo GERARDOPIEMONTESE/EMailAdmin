@@ -1,0 +1,837 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+
+.buttonModule
+{
+    background-color: #e5ebf7;
+    font-family: 'Roboto', Helvetica;
+	font-size: 12px;
+    color: #333;
+    padding: 5px;
+    display: block;
+}
+
+.buttonModule .label
+{
+    min-width: 80px;
+}
+
+.buttonModule .dropdown
+{
+    height: 23px; 
+    width: 197px;
+}
+
+.buttonModule .button
+{
+	color: #000000;
+	border: solid 1px black;
+}
+
+.formModule 
+{
+	/*color: #0160b3;*/
+    padding: 5px;
+    display: block;
+    font-family: 'Roboto', Helvetica;
+}
+
+.formModule .module 
+{
+    margin-top: 5px;
+}
+
+.formModule .module .label
+{
+    float: left;
+    padding-left: 3px;
+    padding-right: 5px;
+    color: #000;
+    text-align: right;
+    margin: 4px 0;
+    font-size: 14px;
+    min-width: 80px;
+}
+
+.formModule .module .labelTitle
+{
+    width: 250px;
+    text-align: right;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 15px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.formModule .module .textBoxNumber_XS 
+{
+    height: 20px;
+    width: 25px;
+    position: relative;
+}
+
+.formModule .module .textBoxNumber_S 
+{
+    height: 20px;
+    width: 40px;
+    position: relative;
+}
+
+.formModule .module .smalltextbox
+{
+    height: 20px; 
+    width: 150px;
+    position: relative;
+}
+
+.formModule .module .textbox
+{
+    height: 20px; 
+    width: 250px;
+    position: relative;
+}
+
+.formModule .module .longTextbox
+{
+    height: 20px; 
+    width: 480px;
+    position: relative;
+}
+
+.formModule .module .bigTextbox
+{
+    height: 160px; 
+    width: 250px;
+    position: relative;
+    text-align: left;
+    vertical-align: text-top;
+}
+
+.formModule .module .smalldropdown
+{
+    height: 20px; 
+    width: 150px;
+    position: relative;
+}
+
+.formModule .module .dropdown
+{
+    height: 25px;
+    font-size: 12px;
+    width: 250px;
+    position: relative;
+    border: 1px solid #CCC;
+}
+
+.formModule .module .longDropdown
+{
+    height: 20px; 
+    width: 350px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.formModule .module .button
+{
+	border: 1px solid #999;	
+}
+
+.formModule .module table
+{
+    border-collapse:collapse;
+}
+
+.gridList 
+{
+    margin: auto;
+    margin-top: 25px;
+}
+
+.gridList div > table {
+    margin: 0 auto;
+}
+
+.gridFont
+{
+    /*font-family: Calibri; 
+    font-size: small;*/
+}
+
+.gridView_Button
+{
+    font-family: 'Roboto', Helvetica;
+	font-size: 10px;
+	color: #000000;
+	border: solid 1px black;
+}
+
+.gridView_RowStyle
+{
+    background-color: #F7F6F3;
+    color: #333333;
+}
+
+.gridView_Footer_Style 
+{
+    background-color: #284775;
+} 
+
+.gridView_Pager_Style_Row
+{
+    background-color: #284775;
+    color: white;
+}
+
+.gridView_Pager_Style_Row tr td table
+{
+    text-align: center;
+} 
+
+.gridView_Pager_Style_Row td table tr td
+{
+    width: 5px;
+}
+
+.gridView_Selected_Row
+{
+    background-color: #E2DED6;
+    font-weight: bold;
+    color: #333333;
+}
+
+.gridView_Edit_Row
+{
+    background-color: #999999;
+}
+
+.gridView_Alternative_Row_Data
+{
+    background-color: White;
+    color: #284775;
+}
+
+.gridView_Row_Header
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+    text-decoration: cancel-underline;
+}
+
+.text_Normal
+{
+	font-family: 'Roboto', Helvetica;
+	font-size: 10px;
+	color: #000000;
+	text-align: left;
+}
+
+.text_Title
+{
+	font-family: 'Roboto', Helvetica;
+	font-size: 18px;
+	color: #000000;
+	text-align: left;
+	font-weight:bold;
+}
+.scrolleableDiv 
+{
+    height: 480px;
+    width: 250px;
+    overflow: scroll;
+}
+
+.scrolleableDivWidth 
+{
+    height: 180px;
+    width: 450px;
+    overflow: scroll;
+}
+
+.modalBackgroundRestore {
+	border-bottom-width:thick;
+	border-bottom-style:groove;
+	border-bottom-color:Black;
+	border-right-width:thick;
+	border-right-style:groove;
+	border-right-color:Black;
+	background-color:White;
+	filter:alpha(opacity=100);
+	opacity:1.0;
+    display: block;
+}
+
+.modalBackground {
+	background-color:Black;
+	filter:alpha(opacity=10);
+	opacity:0.1;
+}
+
+.calendarStyle .ajax__calendar_container 
+{ 
+z-index: 200000; 
+background-color: #FFF; 
+border: 1px solid black; 
+}
+
+.ProgressBanner
+{
+	position: absolute;
+	top:50%;
+	left:45%;
+	background-color:White;
+	color: black;
+	font-weight:bold;
+	font-family: Arial;
+	font-size: 12px;
+	color: #000000;	
+	width: 160px;
+	padding:10px;
+	z-index:1005;
+	border:3px solid #000000;
+	width: 20%;
+	height: 15%;
+}
+
+
+.form {
+    width: auto;
+    font-family: 'Roboto', Helvetica;
+}
+.m-center {
+    margin: 0 auto;
+}
+.form h2 {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 10px 0;
+}
+.form p.desc {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+}
+.form.medium {
+    max-width: 620px;
+    margin: 15px auto;
+}
+
+.form .form-rows 
+{
+    padding: 20px 15px 15px 15px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px 1px #AAA, 0 1px 0 0 #EEE;
+}
+
+.form .form-rows .row
+{
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form .form-rows .btn-cnt {
+    text-align: right;
+    margin-right: 50px;
+}
+
+
+/* :not(.btn-cnt, .msg-cnt)*/
+.form .form-rows .row span 
+{
+    font-size: 13px; 
+    text-align: right;
+    margin-right: 10px;
+    display: block;
+    float: left;
+    width: 30%;
+    line-height: 26px;
+}
+
+.form .form-rows .row span.error
+{
+    display: inline;
+    width: auto;
+    color: #CF2D2D;
+    float: none;
+}
+
+.form .form-rows .row input:not([type]), .form .form-rows .row input[type="color"], .form .form-rows .row input[type="email"],
+.form .form-rows .row input[type="number"], .form .form-rows .row input[type="password"], .form .form-rows .row input[type="tel"],
+.form .form-rows .row input[type="url"], .form .form-rows .row input[type="text"] 
+{
+    margin: 0;
+    padding: 4px 5px;
+    border: 1px solid #C2C2C2;
+}
+
+.form .form-rows .row select 
+{    
+    border: 1px solid #C2C2C2;
+    margin: 0;
+    padding: 3px 5px;
+}
+
+button.ok:hover, input[type="button"].ok:hover, input[type="submit"].ok:hover {
+    background-color: #0076CC;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0076CC), color-stop(100%, #0069B5));
+    background-image: -webkit-linear-gradient(top, #0076CC, #0069B5);
+    background-image: -moz-linear-gradient(top, #0076CC, #0069B5);
+    background-image: -ms-linear-gradient(top, #0076CC, #0069B5);
+    background-image: -o-linear-gradient(top, #0076CC, #0069B5);
+    background-image: linear-gradient(top, #0076CC, #0069B5);
+    border: 1px solid #043B63;
+    border-bottom: 1px solid #043050;
+    cursor: pointer;
+}
+button.ok, input[type="button"].ok, input[type="submit"].ok {
+    background-color: #0786E2;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0786E2), color-stop(100%, #0475C7));
+    background-image: -webkit-linear-gradient(top, #0786E2, #0475C7);
+    background-image: -moz-linear-gradient(top, #0786E2, #0475C7);
+    background-image: -ms-linear-gradient(top, #0786E2, #0475C7);
+    background-image: -o-linear-gradient(top, #0786E2, #0475C7);
+    background-image: linear-gradient(top, #0786E2, #0475C7);
+    border: 1px solid #095E9C;
+    border-bottom: 1px solid #02406D;
+    border-radius: 3px;
+    color: #fff;
+    padding: 5px 10px;
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+    font-family: 'Roboto', Helvetica;
+}
+button.ok:active, input[type="button"].ok:active, input[type="submit"].ok:active  {
+    border: 1px solid #095E9C;
+    border-bottom: 1px solid #043050;
+    -webkit-box-shadow: inset 0 0 5px 2px #095E9C, 0 1px 0 0 #EEE;
+    box-shadow: inset 0 0 5px 2px #095E9C, 0 1px 0 0 #EEE;
+}
+
+button.cancel:hover, input[type="button"].cancel:hover, input[type="submit"].cancel:hover {
+    background-color: #DDD;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DDD), color-stop(100%, #BBB));
+    background-image: -webkit-linear-gradient(top, #DDD, #BBB);
+    background-image: -moz-linear-gradient(top, #DDD, #BBB);
+    background-image: -ms-linear-gradient(top, #DDD, #BBB);
+    background-image: -o-linear-gradient(top, #DDD, #BBB);
+    background-image: linear-gradient(top, #DDD, #BBB);
+    border: 1px solid #BBB;
+    border-bottom: 1px solid #999;
+    cursor: pointer;
+    text-shadow: 0 1px 0 #DDD;    
+}
+button.cancel, input[type="button"].cancel, input[type="submit"].cancel {
+    background-color: #EEE;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EEE), color-stop(100%, #CCC));
+    background-image: -webkit-linear-gradient(top, #EEE, #CCC);
+    background-image: -moz-linear-gradient(top, #EEE, #CCC);
+    background-image: -ms-linear-gradient(top, #EEE, #CCC);
+    background-image: -o-linear-gradient(top, #EEE, #CCC);
+    background-image: linear-gradient(top, #EEE, #CCC);
+    border: 1px solid #CCC;
+    border-bottom: 1px solid #BBB;
+    border-radius: 3px;
+    color: #333;
+    padding: 5px 10px;
+    text-align: center;
+    text-shadow: 0 1px 0 #EEE;
+    margin: 0;
+    font-size: 12px;
+    font-family: 'Roboto', Helvetica;
+}
+button.delete, input[type="button"].delete, input[type="submit"].delete
+{
+    background-color: #E20707;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #E20707), color-stop(100%, #C70404));
+    background-image: -webkit-linear-gradient(top, #E20707, #C70404);
+    background-image: -moz-linear-gradient(top, #E20707, #C70404);
+    background-image: -ms-linear-gradient(top, #E20707, #C70404);
+    background-image: -o-linear-gradient(top, #E20707, #C70404);
+    background-image: linear-gradient(top, #E20707, #C70404);
+    border: 1px solid #9C0909;
+    border-bottom: 1px solid #6D0202;
+    border-radius: 3px;
+    color: #FFF;
+    padding: 5px 10px;
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+    font-family: 'Roboto', Helvetica;
+}
+button.delete:hover, input[type="button"].delete:hover, input[type="submit"].delete:hover {
+    background-color: #C00;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C00), color-stop(100%, #B50000));
+    background-image: -webkit-linear-gradient(top, #C00, #B50000);
+    background-image: -moz-linear-gradient(top, #C00, #B50000);
+    background-image: -ms-linear-gradient(top, #C00, #B50000);
+    background-image: -o-linear-gradient(top, #C00, #B50000);
+    background-image: linear-gradient(top, #C00, #B50000);
+    border: 1px solid #630404;
+    border-bottom: 1px solid #500404;
+    cursor: pointer;
+}
+
+button.cancel:active, input[type="button"].cancel:active, input[type="submit"].cancel:active, .button.delete:active  {
+    border: 1px solid #AAA;
+    border-bottom: 1px solid #888;
+    -webkit-box-shadow: inset 0 0 5px 2px #AAA, 0 1px 0 0 #EEE;
+    box-shadow: inset 0 0 5px 2px #AAA, 0 1px 0 0 #EEE;
+}
+
+button.ok.tall, input[type="button"].ok.tall, input[type="submit"].ok.tall, 
+button.cancel.tall, input[typ="button"].cancel.tall, input[type="submit"].cancel.tall,
+button.delete.tall, input[typ="button"].delete.tall, input[type="submit"].delete.tall
+{
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+button.ok.small, input[type="button"].ok.small, input[type="submit"].ok.small, 
+button.cancel.small, input[type="button"].cancel.small, input[type="submit"].cancel.small,
+button.delete.small, input[typ="button"].delete.small, input[type="submit"].delete.small
+{
+    font-size: 10px;
+    padding: 4px 10px;
+}
+
+.msg-cnt span 
+{
+    color: #FFF;
+    padding: 8px;
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.msg-cnt .error {
+    background-color: #DF4C4C;
+    -webkit-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+    opacity: 1;
+}
+
+.msg-cnt .ok {
+    background-color: #29B86D;
+    -webkit-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+    opacity: 1;
+}
+
+.msg-cnt span:hover 
+{
+    -webkit-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+    opacity: 1;
+}
+
+.lst-generic {
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    display: table;
+    border-bottom: none;
+    border-right: none;
+    font-size: 13px;
+    line-height: 24px;
+    width: 100%;
+}
+.lst-generic .row {
+    width: 100%;
+    display: inline-table;
+    margin: 0;
+    border: 1px solid rgba(204, 204, 204, 0.45);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+.lst-generic .row div {
+    display: table-cell;
+    padding: 0 15px;
+    width: auto;
+    border: 1px solid #ccc;
+    margin: 0;
+    border-top: none;
+    border-left: none;
+}
+
+.lst-generic .row div:first-child 
+{
+    max-width: 250px;
+}
+
+.lst {
+    margin: 15px;                              
+    font-size: 13px;      
+    line-height: 26px;      
+    width: auto;
+}
+.lst .row {
+    width: 100%;
+    border-bottom: 1px dotted rgba(204, 204, 204, 0.71);
+}
+.lst .row div {
+    display: inline;
+}
+.lst .row div:first-child {
+    font-weight: 500;
+    padding-right: 30px;
+    min-width: 80px;
+    padding-right: 20px;
+    display: inline-block;
+}
+
+.lst .row div.title 
+{
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.GridView_Row_Data_Normal:hover, .gridView_RowStyle:hover, .gridView_Alternative_Row_Data:hover {
+    background-color: #EEE;
+}
+
+.btn-cnt
+{
+    margin: 5px 0 5px 0;
+    text-align: right;
+}
+.m-b 
+{
+    margin-bottom: 10px;
+}
+
+.ta-right 
+{
+    text-align: right;    
+    margin-top: 5px;
+}
+.txt-stack
+{
+    line-height: 18px; 
+    color: #333;
+    display: inline!important;
+}
+.cnt-stack 
+{
+    width: 700px;
+    max-height: 500px;
+    overflow: auto;  
+}
+.drp-medium 
+{
+    max-width: 160px;
+}
+
+
+table.tbl-generic th
+{
+    font-weight: 300;
+    font-size: 14px;
+    background-color: #DA7474;
+    color: #FFF;
+    height: 24px;
+    line-height: 24px;
+}
+table.tbl-generic
+{
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+
+table.tbl-generic tr, table.tbl-generic th, table.tbl-generic td, table.tbl-generic tbody
+{
+    border-color: #ccc;
+}
+
+.GridView_Pager_Normal, .gridView_Pager_Style_Row
+{
+    font-family: 'Roboto' , Helvetica;
+    font-size: 12px;
+    text-align: left;
+    color: #000000;
+    text-decoration: none;
+    height: 50px;
+    background: none;
+}
+
+.GridView_Pager_Normal a, .gridView_Pager_Style_Row a
+{
+    font-family: 'Roboto' , Helvetica;
+    font-size: 12px;
+    text-align: left;
+    color: #7C7C7C;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #A2C0FF;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+.GridView_Pager_Normal a:hover, .gridView_Pager_Style_Row a:hover
+{
+    color: #fff;
+    background-color: #CDDDFF;
+}
+
+tr.GridView_Pager_Normal td span, tr.gridView_Pager_Style_Row td span
+{
+    border-radius: 5px;
+    border: 1px solid #A2C0FF;
+    padding: 4px 8px;
+    font-weight: 600;
+    color: #FFF;
+    background-color: #729AEB;
+    border-color: #8597BD;
+}
+tr.GridView_Pager_Normal td table, tr.gridView_Pager_Style_Row td table
+{
+    margin: 0 auto;
+}
+
+.GridView_Row_Header_Normal, .gridView_Row_Header
+{
+    min-height: 26px;
+    font-family: 'Roboto' , Helvetica;
+    font-size: 11px;
+    color: #fff;
+    text-align: left;
+    background-color: #DA7474;
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-bottom-color: #b6b6b6;
+    border-top-width: 1px;
+    border-top-color: #b6b6b6;
+    text-align: center;
+}
+
+.GridView_Row_Header_Normal th, .gridView_Row_Header th
+{
+    font-weight: 300;
+    font-size: 12px;
+    height: 22px;
+}
+
+.GridView_Row_Header_Normal th a, .gridView_Row_Header th a
+{
+    color: #fff;
+    font-size: 12px;
+}
+
+.GridView_Row_Data_Normal_Alternate, .gridView_Alternative_Row_Data
+{
+    height: 26px;
+    font-family: 'Roboto' , Helvetica;
+    font-size: 11px;
+    color: Black;
+    text-align: left;
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-bottom-color: #ebebeb;
+    background-color: #FFF;
+}
+
+.GridView_Row_Header_Normal a, .gridView_Row_Header a
+{
+    height: 20px;
+    text-decoration: none;
+    font-family: 'Roboto' , Helvetica;
+    font-size: 10px;
+    color: #666;
+    text-align: left;
+}
+
+.GridView_Row_Data_Normal, .gridView_RowStyle
+{
+    height: 26px;
+    font-family: 'Roboto' , Helvetica;
+    font-size: 11px;
+    color: Black;
+    text-align: left;
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-bottom-color: #ebebeb;
+    background-color: #FFF;
+}
+
+.GridView_Row_Data_Normal td, .gridView_RowStyle td, .GridView_Row_Data_Normal_Alternate td, .gridView_Alternative_Row_Data td
+{
+    padding: 0px 4px;
+}
+
+.ajax__tab_xp .ajax__tab_header .ajax__tab_active .ajax__tab_tab 
+{
+    background: none!important;
+}
+.ajax__tab_xp 
+{
+    font-family: 'Roboto', Helvetica!important;
+    color: #333!important;
+}
+
+.ajax__tab_xp .ajax__tab_header, .ajax__tab_xp .ajax__tab_header span
+{
+    font-family: 'Roboto', Helvetica!important;
+    color: #333!important;
+    font-size: 12px!important;
+}
+.ajax__tab_hover .ajax__tab_outer
+{
+    background: #ccc!important;
+}
+
+.ajax__tab_xp .ajax__tab_header .ajax__tab_tab
+{
+    background: none!important;
+}
+
+.modal-bkg {
+    background: #fff;
+    box-shadow: 0 0 10px #666;
+}
+
+.form-thanks {
+    max-width: 757px;
+    margin: 15px auto;
+    border-radius: 8px;
+    font-family: 'Open Sans', Helvetica;
+}
+
+.page-thanks h3 
+{
+    color: #0069B5;
+    font-size: 38px;
+    font-weight: 300;
+    padding-top: 10px;
+    text-align: center;
+    margin: 0;
+}
+.page-thanks p
+{
+    margin-top: 8px;
+    color: #333;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.page-thanks img.small-logo
+{
+    padding: 20px 0 0 30px;
+}
+
+.page-thanks img.firulete
+{
+    padding: 10px 0;
+    width: 100%;
+}

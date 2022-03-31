@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{979FE973-B2A3-49EF-8F29-7D81CF98804A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EMailAdmin.ExternalServices</RootNamespace>
+    <AssemblyName>EMailAdmin.ExternalServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CapaNegocioDatos">
+      <HintPath>..\EMailAdmin\Libraries\CapaNegocioDatos.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate20">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate20.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate21">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate21.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate31">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate31.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate32">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate32.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging.Ems">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Messaging.Ems.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging.Nms">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Messaging.Nms.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Scheduling.Quartz">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Scheduling.Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Services">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Template.Velocity">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Template.Velocity.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Testing.Microsoft">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Testing.Microsoft.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Testing.NUnit">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Testing.NUnit.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Extensions">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Web.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Mvc">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Mvc3">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Web.Mvc3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\DAOIssuanceInformation.cs" />
+    <Compile Include="Data\ExternalDAOLocator.cs" />
+    <Compile Include="Data\DAORateInformation.cs" />
+    <Compile Include="Data\Interfaces\IDAOIssuanceInformation.cs" />
+    <Compile Include="Data\Interfaces\IDAORateInformation.cs" />
+    <Compile Include="Domain\IssuanceInformation.cs" />
+    <Compile Include="Domain\RateInformation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExternalInformationService.cs" />
+    <Compile Include="Service\ExternalServiceLocator.cs" />
+    <Compile Include="Service\Interface\IExternalInformationService.cs" />
+    <Compile Include="Web References\ACNetService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Components\FrameworkDAC\FrameworkDAC.csproj">
+      <Project>{E2DB7052-77F4-4E32-A478-1989B5138CD6}</Project>
+      <Name>FrameworkDAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\ServerDAC\ServerDAC.csproj">
+      <Project>{AD5B36CF-F3B7-4712-9677-4BE6794BA392}</Project>
+      <Name>ServerDAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\ServerMSG\ServerMSG.csproj">
+      <Project>{17B42611-44CB-49C7-8CA1-2981D64E4E6B}</Project>
+      <Name>ServerMSG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\ServerTMP\ServerTMP.csproj">
+      <Project>{110CCAC1-C1D5-4373-A3B6-7356FCE00B5E}</Project>
+      <Name>ServerTMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\Utilitarios\LibreriaUtilitarios.csproj">
+      <Project>{92956E1E-AAC0-48E7-B88A-ECA1E1982CC3}</Project>
+      <Name>LibreriaUtilitarios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Components\WorkFlowLibrary\WorkFlowLibrary.csproj">
+      <Project>{8E391D64-4926-4C9B-9FFF-82676F812177}</Project>
+      <Name>WorkFlowLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://172.17.1.40:8080/ws/services/MembershipInformation%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ACNetService\</RelPath>
+      <UpdateFromURL>http://172.17.1.40:8080/ws/services/MembershipInformation%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EMailAdmin_ExternalServices_ACNetService_MembershipInformationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ACNetService\MembershipInformation.wsdl" />
+    <None Include="Web References\ACNetService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

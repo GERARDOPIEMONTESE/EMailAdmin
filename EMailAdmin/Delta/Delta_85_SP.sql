@@ -1,0 +1,69 @@
+
+USE [EMailAdmin]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Gustavo Suarez
+-- Create date: 11/03/2014
+-- Description:	Voucher with associated points
+-- =============================================
+CREATE PROCEDURE Vouchers_Tx_Filter
+    @DateFrom	 DATE,
+    @DateTo		 DATE
+AS
+BEGIN
+
+	DECLARE @TSQL NVARCHAR(MAX)
+	DECLARE @DateFromWhere NVARCHAR(100) = 'to_date(' + '''''' + convert(varchar(10),@DateFrom,112) + '''''' + ', ''''YYYYMMDD'''')'
+	DECLARE @DateToWhere NVARCHAR(100) = 'to_date(' + '''''' + convert(varchar(10),@DateTo,112) + '''''' + ', ''''YYYYMMDD'''') + 1'
+
+	SELECT @TSQL = '
+		SELECT *,
+			dbo.VoucherPoints(
+			VV.PAIS, 
+			VV.AGENCIA,
+			VV.SUC_AGENCIA,
+			VV.PRODUCTO,
+			VV.COD_TARIFA,
+			VV.MODALIDAD,
+			cast(VV.FECHA_EMISION as DATETIME)
+			) AS POINTS
+		FROM
+		(SELECT * FROM OPENQUERY(ICARD,''SELECT P.NOMBRE AS NOMBRE_PAIS,
+			V.PAIS, V.CODIGO, V.PRODUCTO, V.COD_TARIFA, V.FECHA_EMISION, V.AGENCIA, V.SUC_AGENCIA,
+			V.CANT_DIAS, V.TARIFA_EMITIDA, V.COD_BONIFICACION, V.PLAN_FAMILIA, V.GRUPO_VOUCHER, V.ID_PROMOCION, 
+			V.FEC_VIG_INIC, V.FEC_VIF_FIN, V.FEC_BAJA,
+			T.MODALIDAD, 
+			C.APELLIDO, C.NOMBRE, C.EMAIL, C.NRO_DOCUMENTO, C.FEC_NACIMIENTO,
+			V.PAIS || V.CODIGO AS UNIQUE_VOUCHER_ID,
+			V.PAIS || V.PRODUCTO || V.COD_TARIFA AS ConcPaisProdTar,
+			V.PAIS || V.AGENCIA || V.PRODUCTO || V.COD_TARIFA AS ConcPaisAgvPrdTar
+		FROM ICARD.VOUCHER V, 
+			ICARD.TARIFAS T, 
+			ICARD.CLIENTES C, 
+			ICARD.PAISES P
+		WHERE V.PAIS = P.CODIGO 
+			AND V.PAIS = T.PAIS 
+			AND V.PRODUCTO = T.PRODUCTO 
+			AND V.COD_TARIFA = T.TARIFA 
+			AND V.CLIENTE = C.CODIGO 
+			AND V.PAIS = C.PAIS 
+			AND TO_NUMBER(T.CANT_DIAS) = 
+			(SELECT MAX(TO_NUMBER(T2.CANT_DIAS)) FROM TARIFAS T2 WHERE T2.PAIS = V.PAIS AND T2.PRODUCTO = V.PRODUCTO AND T2.TARIFA = V.COD_TARIFA AND TO_NUMBER(T2.CANT_DIAS) <= V.CANT_DIAS)
+			AND V.FEC_BAJA IS NULL 
+			AND V.FEC_VIG_INIC >= ' + @DateFromWhere + ' 
+			AND V.FEC_VIG_INIC <= ' + @DateToWhere + ''')) VV'
+
+	EXEC(@TSQL)
+
+END
+
+
+
+

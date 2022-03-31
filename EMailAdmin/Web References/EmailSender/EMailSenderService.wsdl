@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendMailEkit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryCode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="voucherCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moduleCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailEkitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMailEkitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultipleMailEkit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryCode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="voucherCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moduleCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultipleMailEkitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMultipleMailEkitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitEMailProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitEMailProcessResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendMailCancelacionPoliza">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryCode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="voucherCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="polizaId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moduleCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailCancelacionPolizaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMailCancelacionPolizaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailModificacionPoliza">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryCode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="voucherCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="polizaId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="polizaVoidId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moduleCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailModificacionPolizaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMailModificacionPolizaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailCotizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cotizacion" type="tns:MailCotizacion" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MailCotizacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Productos" type="tns:ArrayOfProducto" />
+          <s:element minOccurs="0" maxOccurs="1" name="module" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idioma" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Country" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplyPolicy" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DollarQuote" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProducto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Producto" nillable="true" type="tns:Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Producto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clauses" type="tns:ArrayOfClausula" />
+          <s:element minOccurs="0" maxOccurs="1" name="Total" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Insurance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Assistance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Country" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClausula">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Clausula" nillable="true" type="tns:Clausula" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Clausula">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="pais" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="producto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tarifa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cantDias" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="idClausula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="leyenda" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="posicion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="titulo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMailCotizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMailCotizacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMailEkitSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailEkit" />
+  </wsdl:message>
+  <wsdl:message name="SendMailEkitSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailEkitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleMailEkitSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMultipleMailEkit" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleMailEkitSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMultipleMailEkitResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitEMailProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:InitEMailProcess" />
+  </wsdl:message>
+  <wsdl:message name="InitEMailProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:InitEMailProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailCancelacionPolizaSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailCancelacionPoliza" />
+  </wsdl:message>
+  <wsdl:message name="SendMailCancelacionPolizaSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailCancelacionPolizaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailModificacionPolizaSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailModificacionPoliza" />
+  </wsdl:message>
+  <wsdl:message name="SendMailModificacionPolizaSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailModificacionPolizaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailCotizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailCotizacion" />
+  </wsdl:message>
+  <wsdl:message name="SendMailCotizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailCotizacionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EMailSenderServiceSoap">
+    <wsdl:operation name="SendMailEkit">
+      <wsdl:input message="tns:SendMailEkitSoapIn" />
+      <wsdl:output message="tns:SendMailEkitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleMailEkit">
+      <wsdl:input message="tns:SendMultipleMailEkitSoapIn" />
+      <wsdl:output message="tns:SendMultipleMailEkitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitEMailProcess">
+      <wsdl:input message="tns:InitEMailProcessSoapIn" />
+      <wsdl:output message="tns:InitEMailProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailCancelacionPoliza">
+      <wsdl:input message="tns:SendMailCancelacionPolizaSoapIn" />
+      <wsdl:output message="tns:SendMailCancelacionPolizaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailModificacionPoliza">
+      <wsdl:input message="tns:SendMailModificacionPolizaSoapIn" />
+      <wsdl:output message="tns:SendMailModificacionPolizaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailCotizacion">
+      <wsdl:input message="tns:SendMailCotizacionSoapIn" />
+      <wsdl:output message="tns:SendMailCotizacionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EMailSenderServiceSoap" type="tns:EMailSenderServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMailEkit">
+      <soap:operation soapAction="http://tempuri.org/SendMailEkit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleMailEkit">
+      <soap:operation soapAction="http://tempuri.org/SendMultipleMailEkit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitEMailProcess">
+      <soap:operation soapAction="http://tempuri.org/InitEMailProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailCancelacionPoliza">
+      <soap:operation soapAction="http://tempuri.org/SendMailCancelacionPoliza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailModificacionPoliza">
+      <soap:operation soapAction="http://tempuri.org/SendMailModificacionPoliza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailCotizacion">
+      <soap:operation soapAction="http://tempuri.org/SendMailCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EMailSenderServiceSoap12" type="tns:EMailSenderServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMailEkit">
+      <soap12:operation soapAction="http://tempuri.org/SendMailEkit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleMailEkit">
+      <soap12:operation soapAction="http://tempuri.org/SendMultipleMailEkit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitEMailProcess">
+      <soap12:operation soapAction="http://tempuri.org/InitEMailProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailCancelacionPoliza">
+      <soap12:operation soapAction="http://tempuri.org/SendMailCancelacionPoliza" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailModificacionPoliza">
+      <soap12:operation soapAction="http://tempuri.org/SendMailModificacionPoliza" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailCotizacion">
+      <soap12:operation soapAction="http://tempuri.org/SendMailCotizacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EMailSenderService">
+    <wsdl:port name="EMailSenderServiceSoap" binding="tns:EMailSenderServiceSoap">
+      <soap:address location="http://localhost:53412/EMailSenderService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EMailSenderServiceSoap12" binding="tns:EMailSenderServiceSoap12">
+      <soap12:address location="http://localhost:53412/EMailSenderService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

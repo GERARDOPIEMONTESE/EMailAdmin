@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ObtenerCondicionesXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlConsulta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCondicionesXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerCondicionesXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMainBenefits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rateCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMainBenefitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMainBenefitsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrintedBenefits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrintedBenefitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrintedBenefitsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDocumentosProductoXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPais" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDocumentosProductoXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDocumentosProductoXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDocumentosPaisXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPais" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDocumentosPaisXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDocumentosPaisXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComparacionesXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlConsulta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComparacionesXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerComparacionesXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerClausulasCoincidentesXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlConsulta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerClausulasCoincidentesXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerClausulasCoincidentesXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerCondicionesXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCondicionesXml" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCondicionesXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCondicionesXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMainBenefitsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMainBenefits" />
+  </wsdl:message>
+  <wsdl:message name="GetMainBenefitsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMainBenefitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrintedBenefitsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrintedBenefits" />
+  </wsdl:message>
+  <wsdl:message name="GetPrintedBenefitsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrintedBenefitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDocumentosProductoXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentosProductoXml" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDocumentosProductoXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentosProductoXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDocumentosPaisXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentosPaisXml" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDocumentosPaisXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDocumentosPaisXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComparacionesXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerComparacionesXml" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComparacionesXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerComparacionesXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerClausulasCoincidentesXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerClausulasCoincidentesXml" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerClausulasCoincidentesXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerClausulasCoincidentesXmlResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioClausulasWSSoap">
+    <wsdl:operation name="ObtenerCondicionesXml">
+      <wsdl:input message="tns:ObtenerCondicionesXmlSoapIn" />
+      <wsdl:output message="tns:ObtenerCondicionesXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainBenefits">
+      <wsdl:input message="tns:GetMainBenefitsSoapIn" />
+      <wsdl:output message="tns:GetMainBenefitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintedBenefits">
+      <wsdl:input message="tns:GetPrintedBenefitsSoapIn" />
+      <wsdl:output message="tns:GetPrintedBenefitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDocumentosProductoXml">
+      <wsdl:input message="tns:ObtenerDocumentosProductoXmlSoapIn" />
+      <wsdl:output message="tns:ObtenerDocumentosProductoXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDocumentosPaisXml">
+      <wsdl:input message="tns:ObtenerDocumentosPaisXmlSoapIn" />
+      <wsdl:output message="tns:ObtenerDocumentosPaisXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComparacionesXml">
+      <wsdl:input message="tns:ObtenerComparacionesXmlSoapIn" />
+      <wsdl:output message="tns:ObtenerComparacionesXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClausulasCoincidentesXml">
+      <wsdl:input message="tns:ObtenerClausulasCoincidentesXmlSoapIn" />
+      <wsdl:output message="tns:ObtenerClausulasCoincidentesXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioClausulasWSSoap" type="tns:ServicioClausulasWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerCondicionesXml">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCondicionesXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainBenefits">
+      <soap:operation soapAction="http://tempuri.org/GetMainBenefits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintedBenefits">
+      <soap:operation soapAction="http://tempuri.org/GetPrintedBenefits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDocumentosProductoXml">
+      <soap:operation soapAction="http://tempuri.org/ObtenerDocumentosProductoXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDocumentosPaisXml">
+      <soap:operation soapAction="http://tempuri.org/ObtenerDocumentosPaisXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComparacionesXml">
+      <soap:operation soapAction="http://tempuri.org/ObtenerComparacionesXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClausulasCoincidentesXml">
+      <soap:operation soapAction="http://tempuri.org/ObtenerClausulasCoincidentesXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioClausulasWSSoap12" type="tns:ServicioClausulasWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerCondicionesXml">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCondicionesXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainBenefits">
+      <soap12:operation soapAction="http://tempuri.org/GetMainBenefits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintedBenefits">
+      <soap12:operation soapAction="http://tempuri.org/GetPrintedBenefits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDocumentosProductoXml">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerDocumentosProductoXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDocumentosPaisXml">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerDocumentosPaisXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComparacionesXml">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerComparacionesXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClausulasCoincidentesXml">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerClausulasCoincidentesXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioClausulasWS">
+    <wsdl:port name="ServicioClausulasWSSoap" binding="tns:ServicioClausulasWSSoap">
+      <soap:address location="http://serviciocondiciones.assist-card.com/ServicioClausulasWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioClausulasWSSoap12" binding="tns:ServicioClausulasWSSoap12">
+      <soap12:address location="http://serviciocondiciones.assist-card.com/ServicioClausulasWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FADEDF54-55BD-4F5B-8462-DB65E95279C5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EMailAdmin.WindowsService</RootNamespace>
+    <AssemblyName>EMailAdmin.WindowsService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CapaNegocioDatos">
+      <HintPath>..\EMailAdmin\Libraries\CapaNegocioDatos.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EMailAdminService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EMailAdminService.Designer.cs">
+      <DependentUpon>EMailAdminService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategies\AbstractEMailProcess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\AplicacionesNet\Components\FrameworkDAC\FrameworkDAC.csproj">
+      <Project>{E2DB7052-77F4-4E32-A478-1989B5138CD6}</Project>
+      <Name>FrameworkDAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\AplicacionesNet\Components\ServerDAC\ServerDAC.csproj">
+      <Project>{AD5B36CF-F3B7-4712-9677-4BE6794BA392}</Project>
+      <Name>ServerDAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\AplicacionesNet\Components\ServerMSG\ServerMSG.csproj">
+      <Project>{17B42611-44CB-49C7-8CA1-2981D64E4E6B}</Project>
+      <Name>ServerMSG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\AplicacionesNet\Components\ServerTMP\ServerTMP.csproj">
+      <Project>{110CCAC1-C1D5-4373-A3B6-7356FCE00B5E}</Project>
+      <Name>ServerTMP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\AplicacionesNet\Components\WorkFlowLibrary\WorkFlowLibrary.csproj">
+      <Project>{8E391D64-4926-4C9B-9FFF-82676F812177}</Project>
+      <Name>WorkFlowLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMailBackEnd\EMailAdmin.BackEnd.csproj">
+      <Project>{47709BA3-82D7-497C-BEC1-30D0EC5D3929}</Project>
+      <Name>EMailAdmin.BackEnd</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendMailEkit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryCode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="voucherCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moduleCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailEkitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMailEkitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultipleMailEkit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countryCode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="voucherCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moduleCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMultipleMailEkitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMultipleMailEkitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitEMailProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitEMailProcessResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMailEkitSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailEkit" />
+  </wsdl:message>
+  <wsdl:message name="SendMailEkitSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailEkitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleMailEkitSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMultipleMailEkit" />
+  </wsdl:message>
+  <wsdl:message name="SendMultipleMailEkitSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMultipleMailEkitResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitEMailProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:InitEMailProcess" />
+  </wsdl:message>
+  <wsdl:message name="InitEMailProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:InitEMailProcessResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EMailSenderServiceSoap">
+    <wsdl:operation name="SendMailEkit">
+      <wsdl:input message="tns:SendMailEkitSoapIn" />
+      <wsdl:output message="tns:SendMailEkitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleMailEkit">
+      <wsdl:input message="tns:SendMultipleMailEkitSoapIn" />
+      <wsdl:output message="tns:SendMultipleMailEkitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitEMailProcess">
+      <wsdl:input message="tns:InitEMailProcessSoapIn" />
+      <wsdl:output message="tns:InitEMailProcessSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EMailSenderServiceSoap" type="tns:EMailSenderServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMailEkit">
+      <soap:operation soapAction="http://tempuri.org/SendMailEkit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleMailEkit">
+      <soap:operation soapAction="http://tempuri.org/SendMultipleMailEkit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitEMailProcess">
+      <soap:operation soapAction="http://tempuri.org/InitEMailProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EMailSenderServiceSoap12" type="tns:EMailSenderServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMailEkit">
+      <soap12:operation soapAction="http://tempuri.org/SendMailEkit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMultipleMailEkit">
+      <soap12:operation soapAction="http://tempuri.org/SendMultipleMailEkit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitEMailProcess">
+      <soap12:operation soapAction="http://tempuri.org/InitEMailProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EMailSenderService">
+    <wsdl:port name="EMailSenderServiceSoap" binding="tns:EMailSenderServiceSoap">
+      <soap:address location="http://localhost:65401/EMailSenderService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EMailSenderServiceSoap12" binding="tns:EMailSenderServiceSoap12">
+      <soap12:address location="http://localhost:65401/EMailSenderService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

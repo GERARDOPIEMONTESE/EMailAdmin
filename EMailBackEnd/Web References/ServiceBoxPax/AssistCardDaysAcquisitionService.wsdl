@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" targetNamespace="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="getDaysAcquisitionRequest">
+    <wsdl:part name="id" type="xsd:int" />
+    <wsdl:part name="user" type="soapenc:string" />
+    <wsdl:part name="password" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getDaysAcquisitionResponse">
+    <wsdl:part name="getDaysAcquisitionReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getPreCompraPaxListResponse">
+    <wsdl:part name="getPreCompraPaxListReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="emitirPreCompraPaxRequest">
+    <wsdl:part name="xml" type="soapenc:string" />
+    <wsdl:part name="usuario" type="soapenc:string" />
+    <wsdl:part name="password" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="emitirPreCompraPaxResponse">
+    <wsdl:part name="emitirPreCompraPaxReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="sendEmisionPreCompraMailResponse">
+    <wsdl:part name="sendEmisionPreCompraMailReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="actualizarPreCompraPaxTitularRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="codigoCliente" type="xsd:int" />
+    <wsdl:part name="domCalle" type="soapenc:string" />
+    <wsdl:part name="domCp" type="soapenc:string" />
+    <wsdl:part name="domCiudad" type="soapenc:string" />
+    <wsdl:part name="domProvincia" type="soapenc:string" />
+    <wsdl:part name="domPais" type="xsd:int" />
+    <wsdl:part name="telParticular" type="soapenc:string" />
+    <wsdl:part name="email" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getPreCompraPaxListRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="tipoDocumento" type="xsd:int" />
+    <wsdl:part name="numeroDocumento" type="soapenc:string" />
+    <wsdl:part name="user" type="soapenc:string" />
+    <wsdl:part name="password" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="sendEmisionPreCompraMailRequest">
+    <wsdl:part name="idPreCompra" type="xsd:int" />
+    <wsdl:part name="grupoVoucher" type="soapenc:string" />
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="user" type="soapenc:string" />
+    <wsdl:part name="password" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="actualizarPreCompraPaxTitularResponse">
+    <wsdl:part name="actualizarPreCompraPaxTitularReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:portType name="AssistCardDaysAcquisitionService">
+    <wsdl:operation name="sendEmisionPreCompraMail" parameterOrder="idPreCompra grupoVoucher pais user password">
+      <wsdl:input name="sendEmisionPreCompraMailRequest" message="impl:sendEmisionPreCompraMailRequest" />
+      <wsdl:output name="sendEmisionPreCompraMailResponse" message="impl:sendEmisionPreCompraMailResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarPreCompraPaxTitular" parameterOrder="pais codigoCliente domCalle domCp domCiudad domProvincia domPais telParticular email">
+      <wsdl:input name="actualizarPreCompraPaxTitularRequest" message="impl:actualizarPreCompraPaxTitularRequest" />
+      <wsdl:output name="actualizarPreCompraPaxTitularResponse" message="impl:actualizarPreCompraPaxTitularResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPreCompraPaxList" parameterOrder="pais tipoDocumento numeroDocumento user password">
+      <wsdl:input name="getPreCompraPaxListRequest" message="impl:getPreCompraPaxListRequest" />
+      <wsdl:output name="getPreCompraPaxListResponse" message="impl:getPreCompraPaxListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="emitirPreCompraPax" parameterOrder="xml usuario password">
+      <wsdl:input name="emitirPreCompraPaxRequest" message="impl:emitirPreCompraPaxRequest" />
+      <wsdl:output name="emitirPreCompraPaxResponse" message="impl:emitirPreCompraPaxResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDaysAcquisition" parameterOrder="id user password">
+      <wsdl:input name="getDaysAcquisitionRequest" message="impl:getDaysAcquisitionRequest" />
+      <wsdl:output name="getDaysAcquisitionResponse" message="impl:getDaysAcquisitionResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AssistCardDaysAcquisitionServiceSoapBinding" type="impl:AssistCardDaysAcquisitionService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="sendEmisionPreCompraMail">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendEmisionPreCompraMailRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendEmisionPreCompraMailResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarPreCompraPaxTitular">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="actualizarPreCompraPaxTitularRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="actualizarPreCompraPaxTitularResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPreCompraPaxList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPreCompraPaxListRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getPreCompraPaxListResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="emitirPreCompraPax">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="emitirPreCompraPaxRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="emitirPreCompraPaxResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDaysAcquisition">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDaysAcquisitionRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getDaysAcquisitionResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AssistCardDaysAcquisitionServiceService">
+    <wsdl:port name="AssistCardDaysAcquisitionService" binding="impl:AssistCardDaysAcquisitionServiceSoapBinding">
+      <wsdlsoap:address location="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

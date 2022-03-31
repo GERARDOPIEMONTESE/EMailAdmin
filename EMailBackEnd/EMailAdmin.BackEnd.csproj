@@ -1,0 +1,985 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47709BA3-82D7-497C-BEC1-30D0EC5D3929}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EMailAdmin.BackEnd</RootNamespace>
+    <AssemblyName>EMailAdmin.BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CapaNegocioDatos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\CapaNegocioDatos.1.0.0\lib\net40\CapaNegocioDatos.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsultasGenerales.Backend, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\ConsultasGenerales.Backend.1.0.0\lib\net46\ConsultasGenerales.Backend.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsultasGenerales.Dto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\ConsultasGenerales.Dto.1.0.0\lib\net45\ConsultasGenerales.Dto.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DTOMapper, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\DTOMapper.1.1.3\lib\net462\DTOMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicWsSetup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\DynamicWsSetup.1.0.0\lib\net40\DynamicWsSetup.dll</HintPath>
+    </Reference>
+    <Reference Include="FrameworkDAC, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\FrameworkDAC.1.1.0\lib\net462\FrameworkDAC.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\Componentes\Dlls\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\Componentes\Dlls\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\..\Componentes\Dlls\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\Componentes\Dlls\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\EMailAdmin\Libraries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Seguridad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\Seguridad.1.0.0\lib\net20\Seguridad.dll</HintPath>
+    </Reference>
+    <Reference Include="ServerDAC, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\ServerDAC.1.1.0\lib\net462\ServerDAC.dll</HintPath>
+    </Reference>
+    <Reference Include="ServerMSG, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\ServerMSG.1.0.0\lib\net40\ServerMSG.dll</HintPath>
+    </Reference>
+    <Reference Include="ServerTMP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\ServerTMP.1.0.0\lib\net40\ServerTMP.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate20">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate20.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate21">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate21.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate30">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate30.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate31">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate31.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate32">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Data.NHibernate32.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging.Ems">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Messaging.Ems.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Messaging.Nms">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Messaging.Nms.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Scheduling.Quartz">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Scheduling.Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Services">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Template.Velocity">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Template.Velocity.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Testing.Microsoft">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Testing.Microsoft.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Testing.NUnit">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Testing.NUnit.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Extensions">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Web.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Mvc">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Mvc3">
+      <HintPath>..\EMailAdmin\Libraries\Spring\Spring.Web.Mvc3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Utilitarios">
+      <HintPath>..\..\..\Componentes\Utilitarios\bin\Debug\Utilitarios.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WorkFlowLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\EmailAdmin.MVC\packages\WorkFlowLibrary.1.0.0\lib\net40\WorkFlowLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttachmentReport\MainBenefits.cs">
+      <DependentUpon>MainBenefits.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Data\DAOACCOMNotIssue.cs" />
+    <Compile Include="Data\DAOEstrategyAttachmentTemplate.cs" />
+    <Compile Include="Data\DAOGroupAttachment.cs" />
+    <Compile Include="Data\DAOCapita.cs" />
+    <Compile Include="Data\DAOClausula_R_Estrategy.cs" />
+    <Compile Include="Data\DAOConfigurationValue.cs" />
+    <Compile Include="Data\DAOContentAttachment.cs" />
+    <Compile Include="Data\DAOEMailListExclude.cs" />
+    <Compile Include="Data\DAOEmailLogCheck.cs" />
+    <Compile Include="Data\DAOEmailLog_R_Capita.cs" />
+    <Compile Include="Data\DAOIMessengerAlerts.cs" />
+    <Compile Include="Data\DAONiceTrip.cs" />
+    <Compile Include="Data\DAOPixel.cs" />
+    <Compile Include="Data\DAOPointsReportHistory.cs" />
+    <Compile Include="Data\DAOAttachment.cs" />
+    <Compile Include="Data\DAOAttachmentItem.cs" />
+    <Compile Include="Data\DAOAttachmentType.cs" />
+    <Compile Include="Data\DAOAttachment_R_Group.cs" />
+    <Compile Include="Data\DAOBodyImage.cs" />
+    <Compile Include="Data\DAOConditionType.cs" />
+    <Compile Include="Data\DAOConditionVariableText.cs" />
+    <Compile Include="Data\DAOConditionVariableTextContent.cs" />
+    <Compile Include="Data\DAOConditionVariableText_R_VariableText.cs" />
+    <Compile Include="Data\DAOContent.cs" />
+    <Compile Include="Data\DAOContentImage.cs" />
+    <Compile Include="Data\DAOContent_R_ContentCountryVisibleTextType.cs" />
+    <Compile Include="Data\DAOContent_R_ContentEmailContactType.cs" />
+    <Compile Include="Data\DAOContent_R_ContentImage.cs" />
+    <Compile Include="Data\DAOContent_R_ContentLink.cs" />
+    <Compile Include="Data\DAOContent_R_ContentSignatureType.cs" />
+    <Compile Include="Data\DAOContent_R_ContentUpgradeVariableTextType.cs" />
+    <Compile Include="Data\DAOContent_R_ContentVariableText.cs" />
+    <Compile Include="Data\DAOCountryVisibleText.cs" />
+    <Compile Include="Data\DAOCountryVisibleTextContent.cs" />
+    <Compile Include="Data\DAOCountryVisibleTextType.cs" />
+    <Compile Include="Data\DAOCountryVisibleText_R_Country.cs" />
+    <Compile Include="Data\DAOCountryVisibleText_R_CountryVisibleTextType.cs" />
+    <Compile Include="Data\DAODistributionType.cs" />
+    <Compile Include="Data\DAOEMailAddress.cs" />
+    <Compile Include="Data\DAOEMailContact.cs" />
+    <Compile Include="Data\DAOEMailContactContent.cs" />
+    <Compile Include="Data\DAOEMailContactLocation.cs" />
+    <Compile Include="Data\DAOEMailContactType.cs" />
+    <Compile Include="Data\DAOEmailList.cs" />
+    <Compile Include="Data\DAOEMailListType.cs" />
+    <Compile Include="Data\DAOEmailLog.cs" />
+    <Compile Include="Data\DAOEmailLog_R_PrepurchasePax.cs" />
+    <Compile Include="Data\DAOEMailProcessLog.cs" />
+    <Compile Include="Data\DAOEMailProcessType.cs" />
+    <Compile Include="Data\DAOEstrategy.cs" />
+    <Compile Include="Data\DAOGetReceivedConditions.cs" />
+    <Compile Include="Data\DAOGroup.cs" />
+    <Compile Include="Data\DAOGroupCondition.cs" />
+    <Compile Include="Data\DAOGroupType.cs" />
+    <Compile Include="Data\DAOGroup_R_Template.cs" />
+    <Compile Include="Data\DAOGroup_R_Template_Association.cs" />
+    <Compile Include="Data\DAOHappyBirthBody.cs" />
+    <Compile Include="Data\DAOInsuranceCompany.cs" />
+    <Compile Include="Data\DAOLegal.cs" />
+    <Compile Include="Data\DAOLink.cs" />
+    <Compile Include="Data\DAOLinkType.cs" />
+    <Compile Include="Data\DAOLocator.cs" />
+    <Compile Include="Data\DAOProduct.cs" />
+    <Compile Include="Data\DAOQuoteExchangeBody.cs" />
+    <Compile Include="Data\DAOQuoteMailACCOM.cs" />
+    <Compile Include="Data\DAORate.cs" />
+    <Compile Include="Data\DAOReportLanguage.cs" />
+    <Compile Include="Data\DAOSignature.cs" />
+    <Compile Include="Data\DAOSignatureContent.cs" />
+    <Compile Include="Data\DAOSignatureType.cs" />
+    <Compile Include="Data\DAOSignature_R_Country.cs" />
+    <Compile Include="Data\DAOSignature_R_SignatureType.cs" />
+    <Compile Include="Data\DAOTableVariableText.cs" />
+    <Compile Include="Data\DAOTableVariableTextContent.cs" />
+    <Compile Include="Data\DAOTemplate.cs" />
+    <Compile Include="Data\DAOTemplateType.cs" />
+    <Compile Include="Data\DAOTemplate_R_Attachment.cs" />
+    <Compile Include="Data\DAOTrackEmail.cs" />
+    <Compile Include="Data\DAOTrackLink.cs" />
+    <Compile Include="Data\DAOUpgradeVariableText.cs" />
+    <Compile Include="Data\DAOUpgradeVariableTextContent.cs" />
+    <Compile Include="Data\DAOUpgradeVariableTextType.cs" />
+    <Compile Include="Data\DAOUpgradeVariableText_R_Upgrade.cs" />
+    <Compile Include="Data\DAOUpgradeVariableText_R_UpgradeVariableTextType.cs" />
+    <Compile Include="Data\DAOVariableText.cs" />
+    <Compile Include="Data\DAOVariableTextType.cs" />
+    <Compile Include="Data\DAOVoucherACNETDTO.cs" />
+    <Compile Include="Data\External\DAOBIPaxCumpleanos.cs" />
+    <Compile Include="Data\External\DAOBIPaxContinuaCompra.cs" />
+    <Compile Include="Data\External\DAOExternalVoucher.cs" />
+    <Compile Include="Data\External\DAOIssuanceInformation.cs" />
+    <Compile Include="Data\DAOPrepurchase.cs" />
+    <Compile Include="Data\External\DAORateInformation.cs" />
+    <Compile Include="Data\External\ExternalDAOLocator.cs" />
+    <Compile Include="Data\Information\DAOPaxPassedAway.cs" />
+    <Compile Include="Data\Information\DAOWelcomeBackInformation.cs" />
+    <Compile Include="Data\Interfaces\IDAOACCOMNotIssue.cs" />
+    <Compile Include="Data\Interfaces\IDAOEstrategyAttachmentTemplate.cs" />
+    <Compile Include="Data\Interfaces\IDAOGroupAttachment.cs" />
+    <Compile Include="Data\Interfaces\IDAOBI.cs" />
+    <Compile Include="Data\Interfaces\IDAOCapita.cs" />
+    <Compile Include="Data\Interfaces\IDAOClausula_R_Estrategy.cs" />
+    <Compile Include="Data\Interfaces\IDAOContentAttachment.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailListExclude.cs" />
+    <Compile Include="Data\Interfaces\IDAOEmailLog_R_Capita.cs" />
+    <Compile Include="Data\Interfaces\IDAOIMessengerAlerts.cs" />
+    <Compile Include="Data\Interfaces\IDAONiceTrip.cs" />
+    <Compile Include="Data\Interfaces\IDAOPixel.cs" />
+    <Compile Include="Data\Interfaces\IDAOPointsReportHistory.cs" />
+    <Compile Include="Data\Interfaces\IDAOAttachment.cs" />
+    <Compile Include="Data\Interfaces\IDAOAttachmentItem.cs" />
+    <Compile Include="Data\Interfaces\IDAOAttachmentType.cs" />
+    <Compile Include="Data\Interfaces\IDAOAttachment_R_Group.cs" />
+    <Compile Include="Data\Interfaces\IDAOBodyImage.cs" />
+    <Compile Include="Data\Interfaces\IDAOConditionType.cs" />
+    <Compile Include="Data\Interfaces\IDAOConditionVariableText.cs" />
+    <Compile Include="Data\Interfaces\IDAOConditionVariableTextContent.cs" />
+    <Compile Include="Data\Interfaces\IDAOConditionVariableText_R_VariableText.cs" />
+    <Compile Include="Data\Interfaces\IDAOContent.cs" />
+    <Compile Include="Data\Interfaces\IDAOContentImage.cs" />
+    <Compile Include="Data\Interfaces\IDAOContent_R_ContentCountryVisibleTextType.cs" />
+    <Compile Include="Data\Interfaces\IDAOContent_R_ContentEmailContactType.cs" />
+    <Compile Include="Data\Interfaces\IDAOContent_R_ContentImage.cs" />
+    <Compile Include="Data\Interfaces\IDAOContent_R_ContentLink.cs" />
+    <Compile Include="Data\Interfaces\IDAOContent_R_ContentSignatureType.cs" />
+    <Compile Include="Data\Interfaces\IDAOContent_R_ContentUpgradeVariableTextType.cs" />
+    <Compile Include="Data\Interfaces\IDAOContent_R_ContentVariableText.cs" />
+    <Compile Include="Data\Interfaces\IDAOCountryVisibleText.cs" />
+    <Compile Include="Data\Interfaces\IDAOCountryVisibleTextContent.cs" />
+    <Compile Include="Data\Interfaces\IDAOCountryVisibleTextType.cs" />
+    <Compile Include="Data\Interfaces\IDAOCountryVisibleText_R_Country.cs" />
+    <Compile Include="Data\Interfaces\IDAOCountryVisibleText_R_CountryVisibleTextType.cs" />
+    <Compile Include="Data\Interfaces\IDAODistributionType.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailAddress.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailContact.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailContactContent.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailContactLocation.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailContactType.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailList.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailListType.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailLog.cs" />
+    <Compile Include="Data\Interfaces\IDAOEmailLog_R_PrepurchasePax.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailProcessLog.cs" />
+    <Compile Include="Data\Interfaces\IDAOEMailProcessType.cs" />
+    <Compile Include="Data\Interfaces\IDAOEstrategy.cs" />
+    <Compile Include="Data\Interfaces\IDAOExternalVoucher.cs" />
+    <Compile Include="Data\Interfaces\IDAOGetReceivedConditions.cs" />
+    <Compile Include="Data\Interfaces\IDAOGroup.cs" />
+    <Compile Include="Data\Interfaces\IDAOGroupCondition.cs" />
+    <Compile Include="Data\Interfaces\IDAOGroupType.cs" />
+    <Compile Include="Data\Interfaces\IDAOGroup_R_Template.cs" />
+    <Compile Include="Data\Interfaces\IDAOGroup_R_Template_Association.cs" />
+    <Compile Include="Data\Interfaces\IDAOHappyBirthBody.cs" />
+    <Compile Include="Data\Interfaces\IDAOInsuranceCompany.cs" />
+    <Compile Include="Data\Interfaces\IDAOIssuanceInformation.cs" />
+    <Compile Include="Data\Interfaces\IDAOLegal.cs" />
+    <Compile Include="Data\Interfaces\IDAOLink.cs" />
+    <Compile Include="Data\Interfaces\IDAOLinkType.cs" />
+    <Compile Include="Data\Interfaces\IDAOPaxPassedAway.cs" />
+    <Compile Include="Data\Interfaces\IDAOPrepurchaseInformation.cs" />
+    <Compile Include="Data\Interfaces\IDAOProduct.cs" />
+    <Compile Include="Data\Interfaces\IDAOQuoteExchangeBody.cs" />
+    <Compile Include="Data\Interfaces\IDAOQuoteMailACCOM.cs" />
+    <Compile Include="Data\Interfaces\IDAORate.cs" />
+    <Compile Include="Data\Interfaces\IDAORateInformation.cs" />
+    <Compile Include="Data\Interfaces\IDAOReportLanguage.cs" />
+    <Compile Include="Data\Interfaces\IDAOSignature.cs" />
+    <Compile Include="Data\Interfaces\IDAOSignatureContent.cs" />
+    <Compile Include="Data\Interfaces\IDAOSignatureType.cs" />
+    <Compile Include="Data\Interfaces\IDAOSignature_R_Country.cs" />
+    <Compile Include="Data\Interfaces\IDAOSignature_R_SignatureType.cs" />
+    <Compile Include="Data\Interfaces\IDAOTableVariableText.cs" />
+    <Compile Include="Data\Interfaces\IDAOTableVariableTextContent.cs" />
+    <Compile Include="Data\Interfaces\IDAOTemplate.cs" />
+    <Compile Include="Data\Interfaces\IDAOTemplateDTO.cs" />
+    <Compile Include="Data\Interfaces\IDAOTemplateType.cs" />
+    <Compile Include="Data\Interfaces\IDAOTemplate_R_Attachment.cs" />
+    <Compile Include="Data\Interfaces\IDAOTrackingEmail.cs" />
+    <Compile Include="Data\Interfaces\IDAOTrackLink.cs" />
+    <Compile Include="Data\Interfaces\IDAOUpgradeVariableText.cs" />
+    <Compile Include="Data\Interfaces\IDAOUpgradeVariableTextContent.cs" />
+    <Compile Include="Data\Interfaces\IDAOUpgradeVariableTextType.cs" />
+    <Compile Include="Data\Interfaces\IDAOUpgradeVariableText_R_Upgrade.cs" />
+    <Compile Include="Data\Interfaces\IDAOUpgradeVariableText_R_UpgradeVariableTextType.cs" />
+    <Compile Include="Data\Interfaces\IDAOVariableText.cs" />
+    <Compile Include="Data\Interfaces\IDAOVariableTextType.cs" />
+    <Compile Include="Data\Interfaces\IDAOVoucherACNETDTO.cs" />
+    <Compile Include="Data\Interfaces\IDAOWelcomeBackInformation.cs" />
+    <Compile Include="Data\Join\DAOTemplateDTO.cs" />
+    <Compile Include="Domain\ACCOMNotIssue.cs" />
+    <Compile Include="Domain\EstrategyAttachmentTemplate.cs" />
+    <Compile Include="Domain\GroupAttachment.cs" />
+    <Compile Include="Domain\BaseEnvio.cs" />
+    <Compile Include="Domain\BodyImage.cs" />
+    <Compile Include="Domain\Clausula_R_Estrategy.cs" />
+    <Compile Include="Domain\ConfigurationValue.cs" />
+    <Compile Include="Domain\ContentAttachment.cs" />
+    <Compile Include="Domain\EmailAlertChats.cs" />
+    <Compile Include="Domain\EMailListExclude.cs" />
+    <Compile Include="Domain\External\EmailAlertXamCases.cs" />
+    <Compile Include="Domain\EmailLog_R_Capita.cs" />
+    <Compile Include="Domain\EmailLog_R_PrepurchasePax.cs" />
+    <Compile Include="Domain\External\ClienteInfo.cs" />
+    <Compile Include="Domain\External\PaxContinuaCompra.cs" />
+    <Compile Include="Domain\External\PaxCumpleanos.cs" />
+    <Compile Include="Domain\Pixel.cs" />
+    <Compile Include="Domain\PointsReportHistory.cs" />
+    <Compile Include="Domain\Capita.cs" />
+    <Compile Include="Domain\TrackingEmail.cs" />
+    <Compile Include="Domain\TrackLink.cs" />
+    <Compile Include="DTO\BalanceRequestDTO.cs" />
+    <Compile Include="DTO\ConditionAlertDTO.cs" />
+    <Compile Include="DTO\ConsultaCondicionesDTO.cs" />
+    <Compile Include="DTO\ContinuaCompraDTO.cs" />
+    <Compile Include="DTO\EmailExternalPaymentFinishDTO.cs" />
+    <Compile Include="DTO\DynamicDTO.cs" />
+    <Compile Include="DTO\EmailEndosoDTO.cs" />
+    <Compile Include="DTO\EmailBotonPagoDTO.cs" />
+    <Compile Include="DTO\EmailAlertChatsDTO.cs" />
+    <Compile Include="DTO\EmailAlertNotIssueDTO.cs" />
+    <Compile Include="DTO\EmailCapitaDTO.cs" />
+    <Compile Include="DTO\EmailPolizaDTO.cs" />
+    <Compile Include="DTO\EmailQuoteDTO.cs" />
+    <Compile Include="DTO\EmailXamCasesDTO.cs" />
+    <Compile Include="DTO\FiltersAttachsDTO.cs" />
+    <Compile Include="DTO\PointsReportDTO.cs" />
+    <Compile Include="DTO\SucursalDTO.cs" />
+    <Compile Include="DTO\VoucherACNETDTO.cs" />
+    <Compile Include="Home\ACCOMHome.cs" />
+    <Compile Include="Home\AttachmentGroupHome.cs" />
+    <Compile Include="Home\CapitaHome.cs" />
+    <Compile Include="Home\Clausula_R_EstrategyHome.cs" />
+    <Compile Include="Home\ConfigurationValueHome.cs" />
+    <Compile Include="Home\ContentAttachmentHome.cs" />
+    <Compile Include="Home\EMailListExcludeHome.cs" />
+    <Compile Include="Home\EmailLog_R_CapitaHome.cs" />
+    <Compile Include="Home\EmailLog_R_PrepurchasePaxHome.cs" />
+    <Compile Include="Home\HomeLocator.cs" />
+    <Compile Include="Home\IMessengerHome.cs.cs" />
+    <Compile Include="Home\PixelHome.cs" />
+    <Compile Include="Home\PrepurchasePaxHome.cs" />
+    <Compile Include="Domain\Attachment.cs" />
+    <Compile Include="Domain\AttachmentItem.cs" />
+    <Compile Include="Domain\AttachmentType.cs" />
+    <Compile Include="Domain\Attachment_R_Group.cs" />
+    <Compile Include="Domain\ConditionType.cs" />
+    <Compile Include="Domain\ConditionVariableText.cs" />
+    <Compile Include="Domain\ConditionVariableTextContent.cs" />
+    <Compile Include="Domain\ConditionVariableText_R_VariableText.cs" />
+    <Compile Include="Domain\Content.cs" />
+    <Compile Include="Domain\ContentImage.cs" />
+    <Compile Include="Domain\Content_R_ContentEmailContactType.cs" />
+    <Compile Include="Domain\Content_R_ContentImage.cs" />
+    <Compile Include="Domain\Content_R_ContentLink.cs" />
+    <Compile Include="Domain\Content_R_ContentSignatureType.cs" />
+    <Compile Include="Domain\Content_R_ContentVariableText.cs" />
+    <Compile Include="Domain\Content_R_ContentCountryVisibleTextType.cs" />
+    <Compile Include="Domain\Content_R_ContentUpgradeVariableTextType.cs" />
+    <Compile Include="Domain\External\PrepurchasePaxInformation.cs" />
+    <Compile Include="Domain\QuoteExchangeBody.cs" />
+    <Compile Include="Domain\QuoteMailACCOM.cs" />
+    <Compile Include="Domain\ReceivedConditions.cs" />
+    <Compile Include="Domain\TableVariableText.cs" />
+    <Compile Include="Domain\TableVariableTextContent.cs" />
+    <Compile Include="Domain\EMailList.cs" />
+    <Compile Include="Domain\EMailListType.cs" />
+    <Compile Include="Domain\External\ExternalVoucher.cs" />
+    <Compile Include="Domain\External\PrepurchaceInformation.cs" />
+    <Compile Include="Domain\HappyBirthBody.cs" />
+    <Compile Include="Domain\UpgradeVariableText.cs" />
+    <Compile Include="Domain\UpgradeVariableTextContent.cs" />
+    <Compile Include="Domain\UpgradeVariableTextType.cs" />
+    <Compile Include="Domain\UpgradeVariableText_R_Upgrade.cs" />
+    <Compile Include="Domain\UpgradeVariableText_R_UpgradeVariableTextType.cs" />
+    <Compile Include="Domain\CountryVisibleText.cs" />
+    <Compile Include="Domain\CountryVisibleTextContent.cs" />
+    <Compile Include="Domain\CountryVisibleTextType.cs" />
+    <Compile Include="Domain\CountryVisibleText_R_Country.cs" />
+    <Compile Include="Domain\CountryVisibleText_R_CountryVisibleTextType.cs" />
+    <Compile Include="Domain\DistributionType.cs" />
+    <Compile Include="Domain\EMailAddress.cs" />
+    <Compile Include="Domain\EMailContact.cs" />
+    <Compile Include="Domain\EMailContactContent.cs" />
+    <Compile Include="Domain\EMailContactLocation.cs" />
+    <Compile Include="Domain\EMailContactType.cs" />
+    <Compile Include="Domain\EMailLog.cs" />
+    <Compile Include="Domain\EMailProcessLog.cs" />
+    <Compile Include="Domain\EMailProcessType.cs" />
+    <Compile Include="Domain\Estrategy.cs" />
+    <Compile Include="Domain\External\UpgradeInformation.cs" />
+    <Compile Include="Domain\Group.cs" />
+    <Compile Include="Domain\GroupCondition.cs" />
+    <Compile Include="Domain\GroupType.cs" />
+    <Compile Include="Domain\Group_R_Template.cs" />
+    <Compile Include="Domain\IBodyElement.cs" />
+    <Compile Include="Domain\External\IssuanceInformation.cs" />
+    <Compile Include="Domain\Information\PaxPassedAway.cs" />
+    <Compile Include="Domain\Information\WelcomeBackInformation.cs" />
+    <Compile Include="Domain\InsuranceCompany.cs" />
+    <Compile Include="Domain\Legal.cs" />
+    <Compile Include="Domain\Link.cs" />
+    <Compile Include="Domain\LinkType.cs" />
+    <Compile Include="Domain\Product.cs" />
+    <Compile Include="Domain\Rate.cs" />
+    <Compile Include="Domain\External\RateInformation.cs" />
+    <Compile Include="Domain\ReportAssociation.cs" />
+    <Compile Include="Domain\ReportLanguage.cs" />
+    <Compile Include="Domain\Signature.cs" />
+    <Compile Include="Domain\SignatureContent.cs" />
+    <Compile Include="Domain\SignatureType.cs" />
+    <Compile Include="Domain\Signature_R_Country.cs" />
+    <Compile Include="Domain\Signature_R_SignatureType.cs" />
+    <Compile Include="Domain\Template.cs" />
+    <Compile Include="Domain\TemplateType.cs" />
+    <Compile Include="Domain\Template_R_Attachment.cs" />
+    <Compile Include="Domain\VariableText.cs" />
+    <Compile Include="Domain\VariableTextType.cs" />
+    <Compile Include="DTO\AbstractEMailDTO.cs" />
+    <Compile Include="DTO\ACCOMQuoteDTO.cs" />
+    <Compile Include="DTO\AssociationGroupDTO.cs" />
+    <Compile Include="DTO\EmailListDTO.cs" />
+    <Compile Include="DTO\DefaultEMailDTO.cs" />
+    <Compile Include="DTO\EkitBenefits\EkitBenefitDTO.cs" />
+    <Compile Include="DTO\EMailContactDTO.cs" />
+    <Compile Include="DTO\EMailEkitDTO.cs" />
+    <Compile Include="DTO\EMailEkitVouchersDTO.cs" />
+    <Compile Include="DTO\EMailPrepurchaseDTO.cs" />
+    <Compile Include="DTO\EMailPrepurchasePaxDTO.cs" />
+    <Compile Include="DTO\EMailPreviewDTO.cs" />
+    <Compile Include="DTO\HappyBirthDTO.cs" />
+    <Compile Include="DTO\IssuanceInformationDTO.cs" />
+    <Compile Include="DTO\QuoteExchangeDTO.cs" />
+    <Compile Include="DTO\TemplateDTO.cs" />
+    <Compile Include="Exceptions\EMailAdminException.cs" />
+    <Compile Include="Exceptions\NonEliminatedObjectException.cs" />
+    <Compile Include="Exceptions\NonSavedObjectException.cs" />
+    <Compile Include="Exceptions\NonValidValueException.cs" />
+    <Compile Include="Home\AttachmentHome.cs" />
+    <Compile Include="Home\AttachmentTypeHome.cs" />
+    <Compile Include="Home\ConditionTypeHome.cs" />
+    <Compile Include="Home\ConditionVariableTextHome.cs" />
+    <Compile Include="Home\ContentImageHome.cs" />
+    <Compile Include="Home\EMailListHome.cs" />
+    <Compile Include="Home\EMailListTypeHome.cs" />
+    <Compile Include="Home\External\PrepurchaseInformationHome.cs" />
+    <Compile Include="Home\HappyBirthBodyHome.cs" />
+    <Compile Include="Home\QuoteExchangeBodyHome.cs" />
+    <Compile Include="Home\QuoteMailACCOMHome.cs" />
+    <Compile Include="Home\TableVariableTextHome.cs" />
+    <Compile Include="Home\TrackLinkHome.cs" />
+    <Compile Include="Home\UpgradeVariableTextHome.cs" />
+    <Compile Include="Home\UpgradeVariableTextTypeHome.cs" />
+    <Compile Include="Home\CountryVisibleTextHome.cs" />
+    <Compile Include="Home\CountryVisibleTextTypeHome.cs" />
+    <Compile Include="Home\DistributionTypeHome.cs" />
+    <Compile Include="Home\EMailAddressHome.cs" />
+    <Compile Include="Home\EMailContactHome.cs" />
+    <Compile Include="Home\EMailContactTypeHome.cs" />
+    <Compile Include="Home\EMailLogHome.cs" />
+    <Compile Include="Home\EMailProcessLogHome.cs" />
+    <Compile Include="Home\EMailProcessTypeHome.cs" />
+    <Compile Include="Home\EstrategyHome.cs" />
+    <Compile Include="Home\External\IssuanceInformationHome.cs" />
+    <Compile Include="Home\GroupConditionsHome.cs" />
+    <Compile Include="Home\GroupHome.cs" />
+    <Compile Include="Home\GroupTypeHome.cs" />
+    <Compile Include="Home\AssociationHome.cs" />
+    <Compile Include="Home\Information\WelcomeBackInformationHome.cs" />
+    <Compile Include="Home\InsuranceCompanyHome.cs" />
+    <Compile Include="Home\LegalHome.cs" />
+    <Compile Include="Home\LinkHome.cs" />
+    <Compile Include="Home\LinkTypeHome.cs" />
+    <Compile Include="Home\ProductHome.cs" />
+    <Compile Include="Home\RateHome.cs" />
+    <Compile Include="Home\SignatureHome.cs" />
+    <Compile Include="Home\SignatureTypeHome.cs" />
+    <Compile Include="Home\TemplateHome.cs" />
+    <Compile Include="Home\TemplateTypeHome.cs" />
+    <Compile Include="Home\VariableTextHome.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Objects\BrazilCondition.cs">
+      <DependentUpon>BrazilCondition.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Objects\BrazilCondition.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrazilCondition.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Objects\BrazilVoucherInformationObject.cs" />
+    <Compile Include="Reports\Objects\ConditionsObject.cs" />
+    <Compile Include="Reports\Objects\PasajerosObject.cs" />
+    <Compile Include="Reports\Objects\EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.cs">
+      <DependentUpon>EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Objects\EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Objects\USAReportObject.cs" />
+    <Compile Include="Reports\Objects\VoucherInformationReportObject.cs" />
+    <Compile Include="Reports\Objects\ConditionsReportObject.cs" />
+    <Compile Include="Reports\Objects\EmailReportObject.cs" />
+    <Compile Include="Reports\Objects\VoucherInformationReportRimacObject.cs" />
+    <Compile Include="Reports\Objects\VoucherReportObject.cs" />
+    <Compile Include="Reports\Objects\VoucherTagReportObject.cs" />
+    <Compile Include="Reports\Objects\VoucherInformationRimacReportObject.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoucherInformationRimacReportObject.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AlertChatService.cs" />
+    <Compile Include="Service\AttachmentService.cs" />
+    <Compile Include="Service\Attachment_R_GroupService.cs" />
+    <Compile Include="Service\ExternalPaymentFinishService.cs" />
+    <Compile Include="Service\CapitaService.cs" />
+    <Compile Include="Service\ConditionVariableTextService.cs" />
+    <Compile Include="Service\ContentAttachmentService.cs" />
+    <Compile Include="Service\BotonPagoService.cs" />
+    <Compile Include="Service\EndosoService.cs" />
+    <Compile Include="Service\External\ExternalDynamicInformationService.cs" />
+    <Compile Include="Service\External\PaxContinuaCompraService.cs" />
+    <Compile Include="Service\External\ExternalCondicionesService.cs" />
+    <Compile Include="Service\External\ExternalPrepurchasePaxInfoService.cs" />
+    <Compile Include="Service\External\ExternalXAMServices.cs" />
+    <Compile Include="Service\External\PaxCumpleanosService.cs" />
+    <Compile Include="Service\InformationDynamicServices.cs" />
+    <Compile Include="Service\Interfaces\IExternalInformationStrategyService.cs" />
+    <Compile Include="Service\Interfaces\IExternalPaymentFinishService.cs" />
+    <Compile Include="Service\Interfaces\IEndosoService.cs" />
+    <Compile Include="Service\Interfaces\IBotonPagoService.cs" />
+    <Compile Include="Service\Interfaces\IAlertChatService.cs" />
+    <Compile Include="Service\Interfaces\ICapitaService.cs" />
+    <Compile Include="Service\Interfaces\IConditionVariableTextService.cs" />
+    <Compile Include="Service\Interfaces\IContentAttachmentService.cs" />
+    <Compile Include="Service\Interfaces\IEMailSenderPrepPaxService.cs" />
+    <Compile Include="Service\Interfaces\IExternalPrepurchasePaxService.cs" />
+    <Compile Include="Service\Interfaces\IExternalCondicionesService.cs" />
+    <Compile Include="Service\Interfaces\IExternalXAMServices.cs" />
+    <Compile Include="Service\Interfaces\IInformationDynamicService.cs" />
+    <Compile Include="Service\Interfaces\IPaxContinuaCompraService.cs" />
+    <Compile Include="Service\Interfaces\IPaxCumpleanosService.cs" />
+    <Compile Include="Service\Interfaces\IPolizaService.cs" />
+    <Compile Include="Service\Interfaces\IPrepurchasePaxService.cs" />
+    <Compile Include="Service\Interfaces\ITableBody.cs" />
+    <Compile Include="Service\PolizaService.cs" />
+    <Compile Include="Service\PrepurchasePaxService.cs" />
+    <Compile Include="Service\ServicioHelper.cs" />
+    <Compile Include="Service\UpgradeVariableTextService.cs" />
+    <Compile Include="Service\CountryVisibleTextService.cs" />
+    <Compile Include="Service\EMailContactService.cs" />
+    <Compile Include="Service\EMailLogService.cs" />
+    <Compile Include="Service\EMailProcessLogService.cs" />
+    <Compile Include="Service\External\ExternalInformationService.cs" />
+    <Compile Include="Service\External\ExternalServiceLocator.cs" />
+    <Compile Include="Service\GroupService.cs" />
+    <Compile Include="Service\Group_R_TemplateService.cs" />
+    <Compile Include="Service\InformationService.cs" />
+    <Compile Include="Service\Information\PaxPassedAwayService.cs" />
+    <Compile Include="Service\Interfaces\IUpgradeVariableTextService.cs" />
+    <Compile Include="Service\Interfaces\ICountryVisibleTextService.cs" />
+    <Compile Include="Service\Interfaces\IAttachmentService.cs" />
+    <Compile Include="Service\Interfaces\IAttachment_R_GroupService.cs" />
+    <Compile Include="Service\Interfaces\IEMailContactService.cs" />
+    <Compile Include="Service\Interfaces\IEMailLogService.cs" />
+    <Compile Include="Service\Interfaces\IEMailProcessLogService.cs" />
+    <Compile Include="Service\Interfaces\IExternalInformationService.cs" />
+    <Compile Include="Service\Interfaces\IGroupService.cs" />
+    <Compile Include="Service\Interfaces\IGroup_R_TemplateService.cs" />
+    <Compile Include="Service\Interfaces\IInformationService.cs" />
+    <Compile Include="Service\Interfaces\IPaxPassedAwayService.cs" />
+    <Compile Include="Service\Interfaces\ISendMailService.cs" />
+    <Compile Include="Service\Interfaces\ISignatureService.cs" />
+    <Compile Include="Service\Interfaces\ITemplateService.cs" />
+    <Compile Include="Service\SendMailService.cs" />
+    <Compile Include="Service\ServiceLocator.cs" />
+    <Compile Include="Service\SignatureService.cs" />
+    <Compile Include="Service\TemplateService.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Strategies\Attachment\AttachmentDynamic.cs" />
+    <Compile Include="Strategies\Attachment\AttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\EKitAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\MainDownloadAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\MainBenefitsBrazilCertifiedAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\MainBenefitsOnePageAttach.cs" />
+    <Compile Include="Strategies\Attachment\MainCapitaAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\MainBenefitsRimacAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\MainDownloadDynamicsAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\PointsReportAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\IAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\MainBenefitsAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\MainBenefitsBrazilAttachStrategy.cs" />
+    <Compile Include="Strategies\Attachment\MainBenefitsUSAAttachStrategy.cs" />
+    <Compile Include="Strategies\Clauses\ClauseStrategyLocator.cs" />
+    <Compile Include="Strategies\Clauses\DummyClauseStrategy.cs" />
+    <Compile Include="Strategies\Clauses\IClauseStrategy.cs" />
+    <Compile Include="Strategies\Clauses\UpgradeClauseStrategy.cs" />
+    <Compile Include="Strategies\EMailProcess\AbstractEMailProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\ACCOMAlertNotIssue.cs" />
+    <Compile Include="Strategies\EMailProcess\ACCOMQuoteProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\AlertaChatProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\AlertaXAMCasosProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\AlertProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\ConditionAlertProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\ContinuaTuCompraProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\PointsReportProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\HappyBirthProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\PrepurchasePaxProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\PrepurchaseProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\DummyProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\EMailEKitProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\EMailProcessStrategyContainer.cs" />
+    <Compile Include="Strategies\EMailProcess\NiceTripProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\QuoteExchangeProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\WelcomeBackProcess.cs" />
+    <Compile Include="Strategies\EMailProcess\XAMCasesExtendedProcess.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderBalanceRequest.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderContinuaCompra.cs" />
+    <Compile Include="Strategies\EMailSender\EmailSenderDynamic.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderEndoso.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderBotonPago.cs" />
+    <Compile Include="Strategies\EMailSender\EmailACCOMAlertNotIssue.cs" />
+    <Compile Include="Strategies\EMailSender\EmailAlertaChat.cs" />
+    <Compile Include="Strategies\EMailSender\EMailQuote.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderExternalPaymentFinish.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderPoliza.cs" />
+    <Compile Include="Strategies\EMailSender\EmailSenderCapita.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderConditionAlert.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderPoints.cs" />
+    <Compile Include="Strategies\EMailSender\EmailSenderACCOMQuote.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderPrepurchase.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderDefault.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderDummy.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderEkit.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderNiceTrip.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderPrepurchasePax.cs" />
+    <Compile Include="Strategies\EMailSender\EmailSenderQuoteExchange.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderStrategyLocator.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderWelcomeBack.cs" />
+    <Compile Include="Strategies\EMailSender\EMailSenderHappyBirth.cs" />
+    <Compile Include="Strategies\EMailSender\EmailXAMCases.cs" />
+    <Compile Include="Strategies\EMailSender\IEMailSenderStrategy.cs" />
+    <Compile Include="Strategies\Execution\NotSentEMailMultipleExecution.cs" />
+    <Compile Include="Strategies\TemplateParser\ITemplateParserStrategy.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserClause.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserConditionVariableText.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserContentImage.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserCountryVisibleText.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserDummy.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserDynamicTable.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserEMailContact.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserIfClause.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserLink.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserGUID.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserPixel.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserSignature.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserTable.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserUpgradeVariableText.cs" />
+    <Compile Include="Strategies\TemplateParser\ParserVariableText.cs" />
+    <Compile Include="Utils\DateUtil.cs" />
+    <Compile Include="Utils\EMailBodyUtil.cs" />
+    <Compile Include="Utils\EmailRecipientsHelper.cs" />
+    <Compile Include="Utils\ExportHelper.cs" />
+    <Compile Include="Utils\JsonSerializerSettingsHelper.cs" />
+    <Compile Include="Utils\LogExternalApiCallHelper.cs" />
+    <Compile Include="Utils\ObjectToTable.cs" />
+    <Compile Include="Utils\PdfUtils.cs" />
+    <Compile Include="Web References\AssistCardService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ServiceBoxPax\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Serviciocondiciones\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsXAM\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\AplicacionesNet\Components\FrameworkDAC\FrameworkDAC.csproj">
+      <Project>{E2DB7052-77F4-4E32-A478-1989B5138CD6}</Project>
+      <Name>FrameworkDAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Componentes\ServerDAC\ServerDAC.csproj">
+      <Project>{AD5B36CF-F3B7-4712-9677-4BE6794BA392}</Project>
+      <Name>ServerDAC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\AplicacionesNet\Components\ServerMSG\ServerMSG.csproj">
+      <Project>{17B42611-44CB-49C7-8CA1-2981D64E4E6B}</Project>
+      <Name>ServerMSG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailAdmin.MVC\EmailAdmin.Dto\EmailAdmin.Dto.csproj">
+      <Project>{e7100900-9326-4271-bec8-1de44476b3cd}</Project>
+      <Name>EmailAdmin.Dto</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Objects\BrazilCondition.xsc">
+      <DependentUpon>BrazilCondition.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Objects\BrazilCondition.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BrazilCondition.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Objects\BrazilCondition.xss">
+      <DependentUpon>BrazilCondition.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Objects\EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.xsc">
+      <DependentUpon>EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Objects\EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Objects\EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.xss">
+      <DependentUpon>EMailAdmin.BackEnd.Reports.Objects.BrazilVoucherInformationObject.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Objects\VoucherInformationRimacReportObject.xsc">
+      <DependentUpon>VoucherInformationRimacReportObject.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Objects\VoucherInformationRimacReportObject.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VoucherInformationRimacReportObject.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Objects\VoucherInformationRimacReportObject.xss">
+      <DependentUpon>VoucherInformationRimacReportObject.xsd</DependentUpon>
+    </None>
+    <None Include="Web References\AssistCardService\AssistCardService.wsdl" />
+    <None Include="Web References\AssistCardService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ServiceBoxPax\AssistCardDaysAcquisitionService.wsdl" />
+    <None Include="Web References\ServiceBoxPax\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Serviciocondiciones\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Serviciocondiciones\ServicioClausulasWS.wsdl" />
+    <None Include="Web References\wsXAM\MailService.wsdl" />
+    <None Include="Web References\wsXAM\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wsXAM\ServiceCase.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsXAM\WSMail.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wsXAM\WSMail0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wsXAM\WSMail1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\Serviciocondiciones\ServicioClausulasWS.disco" />
+    <EmbeddedResource Include="AttachmentReport\MainBenefits.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MainBenefits.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://gems.assist-card.com/eAAvs/WebServices/WsMail/WSMail.svc%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsXAM\</RelPath>
+      <UpdateFromURL>https://gems.assist-card.com/eAAvs/WebServices/WsMail/WSMail.svc%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EMailAdmin_BackEnd_wsXAM_MailService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ServiceBoxPax\</RelPath>
+      <UpdateFromURL>https://www.assist-card.net/ws/services/AssistCardDaysAcquisitionService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EMailAdmin_BackEnd_ServiceBoxPax_AssistCardDaysAcquisitionServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://www.assist-card.net/ws/services/AssistCardService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AssistCardService\</RelPath>
+      <UpdateFromURL>https://www.assist-card.net/ws/services/AssistCardService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EMailAdmin_BackEnd_AssistCardService_AssistCardServiceService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://serviciocondiciones.assist-card.com/ServicioClausulasWS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Serviciocondiciones\</RelPath>
+      <UpdateFromURL>http://serviciocondiciones.assist-card.com/ServicioClausulasWS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EMailAdmin_BackEnd_wsServiciocondiciones_ServicioClausulasWS</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wsXAM\WSMail.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Deltas\001_Delta_INS.SQL" />
+    <Content Include="Deltas\002_Delta_SP.sql" />
+    <Content Include="Deltas\003_Delta_UPD.SQL" />
+    <Content Include="Deltas\004_Delta_SP.sql" />
+    <Content Include="Deltas\005_Delta_SP.sql" />
+    <Content Include="Deltas\006_delta_DA.sql" />
+    <Content Include="Deltas\007_delta_DA.sql" />
+    <Content Include="Deltas\008_delta_DA.sql" />
+    <Content Include="Deltas\change_log.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

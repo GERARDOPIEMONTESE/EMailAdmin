@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+    <PostConversionRemoveFromScc>;C:\Proyectos VS\Emisiones\EMailAdmin\EMailAdminAssembly\EMailAdminAssembly.csproj</PostConversionRemoveFromScc>
+    <PostConversionAddToScc>;C:\Proyectos VS\Emisiones\EMailAdmin\EMailAdminAssembly\EMailAdminAssembly.sqlproj</PostConversionAddToScc>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>Database</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>EMailAdminAssembly</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <PermissionSet>EXTERNAL_ACCESS</PermissionSet>
+    <ConnectionString />
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>C:\AplicacionesNet\EMailAdmin\Backup\EMailAdminAssembly\</UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <Name>EMailAdminAssembly</Name>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{95addf63-c7c8-4f87-bde2-4a20354b1744}</ProjectGuid>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DefaultSchema>dbo</DefaultSchema>
+    <TargetLanguage>CS</TargetLanguage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>
+    </DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>
+    </DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>EMailAdminAssembly</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SPEMailProcess.cs" />
+    <Compile Include="Web References\EMailSenderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://mailservice.assist-card.com/EMailSenderService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EMailSenderService\</RelPath>
+      <UpdateFromURL>http://mailservice.assist-card.com/EMailSenderService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\EMailSenderService\EMailSenderService.wsdl" />
+    <None Include="Web References\EMailSenderService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service References\" />
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

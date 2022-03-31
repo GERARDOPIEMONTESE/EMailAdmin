@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="https://www.assist-card.net/ws/services/AssistCardService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://exceptions.icard.com" xmlns:impl="https://www.assist-card.net/ws/services/AssistCardService" targetNamespace="https://www.assist-card.net/ws/services/AssistCardService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://exceptions.icard.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ICardException">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarVoucherValidadoResponse">
+    <wsdl:part name="consultarVoucherValidadoReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getDatosBotonPagoResponse">
+    <wsdl:part name="getDatosBotonPagoReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarVoucherResponse">
+    <wsdl:part name="consultarVoucherReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="traerInteresesResponse">
+    <wsdl:part name="traerInteresesReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="traerInteresesRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="activarVoucherBoletoResponse">
+    <wsdl:part name="activarVoucherBoletoReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="asociarUpgradesRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findVoucherAllRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="codigoVoucher" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getUsuarioUnicoRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVouchersClienteResponse">
+    <wsdl:part name="getVouchersClienteReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVouchersClienteRequest">
+    <wsdl:part name="idCuenta" type="xsd:int" />
+    <wsdl:part name="codigoUsuario" type="xsd:string" />
+    <wsdl:part name="passwordUsuario" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherInfoResponse">
+    <wsdl:part name="getVoucherInfoReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="procesarReimpresionTacAnualRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="voucher" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listarUpgradesResponse">
+    <wsdl:part name="listarUpgradesReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherPasajeroResponse">
+    <wsdl:part name="getVoucherPasajeroReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="registrarEndososCapitasResponse">
+    <wsdl:part name="registrarEndososCapitasReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherAllResponse">
+    <wsdl:part name="getVoucherAllReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="activarVoucherResponse">
+    <wsdl:part name="activarVoucherReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherAllRequest">
+    <wsdl:part name="country" type="xsd:int" />
+    <wsdl:part name="personalId" type="xsd:string" />
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="emitirRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cotizarUpgradesRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherByIdClienteRequest">
+    <wsdl:part name="idClienteUnico" type="xsd:int" />
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="nroDocumento" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="voidByVoucherRequest">
+    <wsdl:part name="countryCode" type="xsd:int" />
+    <wsdl:part name="voucherCode" type="xsd:int" />
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listarUpgradesRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ICardException">
+    <wsdl:part name="fault" type="tns1:ICardException" />
+  </wsdl:message>
+  <wsdl:message name="consultarVoucherRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="codigoVoucher" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getDatosBotonPagoRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="grupoVoucher" type="xsd:int" />
+    <wsdl:part name="idioma" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="asociarUpgradesResponse">
+    <wsdl:part name="asociarUpgradesReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cotizarUpgradesResponse">
+    <wsdl:part name="cotizarUpgradesReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPrecomprasResponse">
+    <wsdl:part name="getPrecomprasReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherPaxRequest">
+    <wsdl:part name="country" type="xsd:int" />
+    <wsdl:part name="personalId" type="xsd:string" />
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="emitirResponse">
+    <wsdl:part name="emitirReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="loginAgencyUserRequest">
+    <wsdl:part name="country" type="xsd:int" />
+    <wsdl:part name="userCode" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="serviceUser" type="xsd:string" />
+    <wsdl:part name="servicePassword" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="registrarTarjetaCreditoRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="serviceUser" type="xsd:string" />
+    <wsdl:part name="servicePassword" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherPaxResponse">
+    <wsdl:part name="getVoucherPaxReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="registrarTarjetaCreditoResponse">
+    <wsdl:part name="registrarTarjetaCreditoReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPrecomprasRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="agencia" type="xsd:string" />
+    <wsdl:part name="sucursal" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cotizarRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="asociarClienteAvouchersRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="idClienteUnico" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarVoucherValidadoRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="codigoVoucher" type="xsd:int" />
+    <wsdl:part name="tipoDoc" type="xsd:string" />
+    <wsdl:part name="documento" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="asociarUpgradesVoidResponse">
+    <wsdl:part name="asociarUpgradesVoidReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ejecutarBatchEmisionesDiariasRequest" />
+  <wsdl:message name="getUsuarioUnicoResponse">
+    <wsdl:part name="getUsuarioUnicoReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listarUpgradesResponse1">
+    <wsdl:part name="listarUpgradesReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="activarUpgradeResponse">
+    <wsdl:part name="activarUpgradeReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cotizarResponse">
+    <wsdl:part name="cotizarReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherInfoRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="codigoVoucher" type="xsd:int" />
+    <wsdl:part name="modulo" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="asociarClienteAvouchersResponse">
+    <wsdl:part name="asociarClienteAvouchersReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="activarVoucherBoletoRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarVoucherByEmailResponse">
+    <wsdl:part name="consultarVoucherByEmailReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="procesarReimpresionTacAnualResponse">
+    <wsdl:part name="procesarReimpresionTacAnualReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherByIdClienteResponse">
+    <wsdl:part name="getVoucherByIdClienteReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherListByIdClienteRequest">
+    <wsdl:part name="idClienteUnico" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findVoucherAllWithTarjetaResponse">
+    <wsdl:part name="findVoucherAllWithTarjetaReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ejecutarBatchEmisionesDiariasResponse" />
+  <wsdl:message name="consultarVoucherByEmailRequest">
+    <wsdl:part name="mail" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="activarUpgradeRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherPasajeroRequest">
+    <wsdl:part name="country" type="xsd:int" />
+    <wsdl:part name="personalId" type="xsd:string" />
+    <wsdl:part name="incluyeMembership" type="xsd:boolean" />
+    <wsdl:part name="user" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findVoucherAllWithTarjetaRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="codigoVoucher" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="asociarUpgradesVoidRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVoucherListByIdClienteResponse">
+    <wsdl:part name="getVoucherListByIdClienteReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listarUpgradesRequest1">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="codigoProducto" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="registrarEndososCapitasRequest">
+    <wsdl:part name="codigoPoliza" type="xsd:string" />
+    <wsdl:part name="fecha" type="xsd:string" />
+    <wsdl:part name="precioTotal" type="xsd:double" />
+    <wsdl:part name="cantidadCapitados" type="xsd:int" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="loginAgencyUserResponse">
+    <wsdl:part name="loginAgencyUserReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="voidByVoucherResponse">
+    <wsdl:part name="voidByVoucherReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getTarifaPadreRequest">
+    <wsdl:part name="pais" type="xsd:int" />
+    <wsdl:part name="producto" type="xsd:string" />
+    <wsdl:part name="codigoTarifa" type="xsd:string" />
+    <wsdl:part name="cantidadDiasVoucher" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="activarVoucherRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findVoucherAllResponse">
+    <wsdl:part name="findVoucherAllReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getTarifaPadreResponse">
+    <wsdl:part name="getTarifaPadreReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="AssistCardService">
+    <wsdl:operation name="emitir" parameterOrder="xml user password">
+      <wsdl:input name="emitirRequest" message="impl:emitirRequest" />
+      <wsdl:output name="emitirResponse" message="impl:emitirResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarUpgrades" parameterOrder="pais usuario password">
+      <wsdl:input name="listarUpgradesRequest" message="impl:listarUpgradesRequest" />
+      <wsdl:output name="listarUpgradesResponse" message="impl:listarUpgradesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarUpgrades" parameterOrder="pais codigoProducto usuario password">
+      <wsdl:input name="listarUpgradesRequest1" message="impl:listarUpgradesRequest1" />
+      <wsdl:output name="listarUpgradesResponse1" message="impl:listarUpgradesResponse1" />
+    </wsdl:operation>
+    <wsdl:operation name="activarVoucher" parameterOrder="xml usuario password">
+      <wsdl:input name="activarVoucherRequest" message="impl:activarVoucherRequest" />
+      <wsdl:output name="activarVoucherResponse" message="impl:activarVoucherResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="activarUpgrade" parameterOrder="xml usuario password">
+      <wsdl:input name="activarUpgradeRequest" message="impl:activarUpgradeRequest" />
+      <wsdl:output name="activarUpgradeResponse" message="impl:activarUpgradeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cotizarUpgrades" parameterOrder="xml usuario password">
+      <wsdl:input name="cotizarUpgradesRequest" message="impl:cotizarUpgradesRequest" />
+      <wsdl:output name="cotizarUpgradesResponse" message="impl:cotizarUpgradesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="loginAgencyUser" parameterOrder="country userCode password serviceUser servicePassword">
+      <wsdl:input name="loginAgencyUserRequest" message="impl:loginAgencyUserRequest" />
+      <wsdl:output name="loginAgencyUserResponse" message="impl:loginAgencyUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="voidByVoucher" parameterOrder="countryCode voucherCode user password">
+      <wsdl:input name="voidByVoucherRequest" message="impl:voidByVoucherRequest" />
+      <wsdl:output name="voidByVoucherResponse" message="impl:voidByVoucherResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="traerIntereses" parameterOrder="xml usuario password">
+      <wsdl:input name="traerInteresesRequest" message="impl:traerInteresesRequest" />
+      <wsdl:output name="traerInteresesResponse" message="impl:traerInteresesResponse" />
+      <wsdl:fault name="ICardException" message="impl:ICardException" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarVoucher" parameterOrder="pais codigoVoucher usuario password">
+      <wsdl:input name="consultarVoucherRequest" message="impl:consultarVoucherRequest" />
+      <wsdl:output name="consultarVoucherResponse" message="impl:consultarVoucherResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPrecompras" parameterOrder="pais agencia sucursal usuario password">
+      <wsdl:input name="getPrecomprasRequest" message="impl:getPrecomprasRequest" />
+      <wsdl:output name="getPrecomprasResponse" message="impl:getPrecomprasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherInfo" parameterOrder="pais codigoVoucher modulo usuario password">
+      <wsdl:input name="getVoucherInfoRequest" message="impl:getVoucherInfoRequest" />
+      <wsdl:output name="getVoucherInfoResponse" message="impl:getVoucherInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findVoucherAll" parameterOrder="pais codigoVoucher usuario password">
+      <wsdl:input name="findVoucherAllRequest" message="impl:findVoucherAllRequest" />
+      <wsdl:output name="findVoucherAllResponse" message="impl:findVoucherAllResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherAll" parameterOrder="country personalId user password">
+      <wsdl:input name="getVoucherAllRequest" message="impl:getVoucherAllRequest" />
+      <wsdl:output name="getVoucherAllResponse" message="impl:getVoucherAllResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarioUnico" parameterOrder="xml usuario password">
+      <wsdl:input name="getUsuarioUnicoRequest" message="impl:getUsuarioUnicoRequest" />
+      <wsdl:output name="getUsuarioUnicoResponse" message="impl:getUsuarioUnicoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTarifaPadre" parameterOrder="pais producto codigoTarifa cantidadDiasVoucher">
+      <wsdl:input name="getTarifaPadreRequest" message="impl:getTarifaPadreRequest" />
+      <wsdl:output name="getTarifaPadreResponse" message="impl:getTarifaPadreResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarVoucherValidado" parameterOrder="pais codigoVoucher tipoDoc documento usuario password">
+      <wsdl:input name="consultarVoucherValidadoRequest" message="impl:consultarVoucherValidadoRequest" />
+      <wsdl:output name="consultarVoucherValidadoResponse" message="impl:consultarVoucherValidadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="asociarUpgradesVoid" parameterOrder="xml usuario password">
+      <wsdl:input name="asociarUpgradesVoidRequest" message="impl:asociarUpgradesVoidRequest" />
+      <wsdl:output name="asociarUpgradesVoidResponse" message="impl:asociarUpgradesVoidResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findVoucherAllWithTarjeta" parameterOrder="pais codigoVoucher usuario password">
+      <wsdl:input name="findVoucherAllWithTarjetaRequest" message="impl:findVoucherAllWithTarjetaRequest" />
+      <wsdl:output name="findVoucherAllWithTarjetaResponse" message="impl:findVoucherAllWithTarjetaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cotizar" parameterOrder="xml usuario password">
+      <wsdl:input name="cotizarRequest" message="impl:cotizarRequest" />
+      <wsdl:output name="cotizarResponse" message="impl:cotizarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherListByIdCliente" parameterOrder="idClienteUnico usuario password">
+      <wsdl:input name="getVoucherListByIdClienteRequest" message="impl:getVoucherListByIdClienteRequest" />
+      <wsdl:output name="getVoucherListByIdClienteResponse" message="impl:getVoucherListByIdClienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherByIdCliente" parameterOrder="idClienteUnico pais nroDocumento usuario password">
+      <wsdl:input name="getVoucherByIdClienteRequest" message="impl:getVoucherByIdClienteRequest" />
+      <wsdl:output name="getVoucherByIdClienteResponse" message="impl:getVoucherByIdClienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDatosBotonPago" parameterOrder="pais grupoVoucher idioma usuario password">
+      <wsdl:input name="getDatosBotonPagoRequest" message="impl:getDatosBotonPagoRequest" />
+      <wsdl:output name="getDatosBotonPagoResponse" message="impl:getDatosBotonPagoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="registrarEndososCapitas" parameterOrder="codigoPoliza fecha precioTotal cantidadCapitados usuario password">
+      <wsdl:input name="registrarEndososCapitasRequest" message="impl:registrarEndososCapitasRequest" />
+      <wsdl:output name="registrarEndososCapitasResponse" message="impl:registrarEndososCapitasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherPasajero" parameterOrder="country personalId incluyeMembership user password">
+      <wsdl:input name="getVoucherPasajeroRequest" message="impl:getVoucherPasajeroRequest" />
+      <wsdl:output name="getVoucherPasajeroResponse" message="impl:getVoucherPasajeroResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="asociarClienteAvouchers" parameterOrder="xml idClienteUnico usuario password">
+      <wsdl:input name="asociarClienteAvouchersRequest" message="impl:asociarClienteAvouchersRequest" />
+      <wsdl:output name="asociarClienteAvouchersResponse" message="impl:asociarClienteAvouchersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="registrarTarjetaCredito" parameterOrder="xml serviceUser servicePassword">
+      <wsdl:input name="registrarTarjetaCreditoRequest" message="impl:registrarTarjetaCreditoRequest" />
+      <wsdl:output name="registrarTarjetaCreditoResponse" message="impl:registrarTarjetaCreditoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ejecutarBatchEmisionesDiarias">
+      <wsdl:input name="ejecutarBatchEmisionesDiariasRequest" message="impl:ejecutarBatchEmisionesDiariasRequest" />
+      <wsdl:output name="ejecutarBatchEmisionesDiariasResponse" message="impl:ejecutarBatchEmisionesDiariasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="activarVoucherBoleto" parameterOrder="xml usuario password">
+      <wsdl:input name="activarVoucherBoletoRequest" message="impl:activarVoucherBoletoRequest" />
+      <wsdl:output name="activarVoucherBoletoResponse" message="impl:activarVoucherBoletoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVouchersCliente" parameterOrder="idCuenta codigoUsuario passwordUsuario">
+      <wsdl:input name="getVouchersClienteRequest" message="impl:getVouchersClienteRequest" />
+      <wsdl:output name="getVouchersClienteResponse" message="impl:getVouchersClienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarVoucherByEmail" parameterOrder="mail usuario password">
+      <wsdl:input name="consultarVoucherByEmailRequest" message="impl:consultarVoucherByEmailRequest" />
+      <wsdl:output name="consultarVoucherByEmailResponse" message="impl:consultarVoucherByEmailResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="asociarUpgrades" parameterOrder="xml usuario password">
+      <wsdl:input name="asociarUpgradesRequest" message="impl:asociarUpgradesRequest" />
+      <wsdl:output name="asociarUpgradesResponse" message="impl:asociarUpgradesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherPax" parameterOrder="country personalId user password">
+      <wsdl:input name="getVoucherPaxRequest" message="impl:getVoucherPaxRequest" />
+      <wsdl:output name="getVoucherPaxResponse" message="impl:getVoucherPaxResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="procesarReimpresionTacAnual" parameterOrder="pais voucher usuario password">
+      <wsdl:input name="procesarReimpresionTacAnualRequest" message="impl:procesarReimpresionTacAnualRequest" />
+      <wsdl:output name="procesarReimpresionTacAnualResponse" message="impl:procesarReimpresionTacAnualResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AssistCardServiceSoapBinding" type="impl:AssistCardService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="emitir">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="emitirRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.w3.org/2001/XMLSchema" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="emitirResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarUpgrades">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="listarUpgradesRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="listarUpgradesResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarUpgrades">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="listarUpgradesRequest1">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="listarUpgradesResponse1">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activarVoucher">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="activarVoucherRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="activarVoucherResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activarUpgrade">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="activarUpgradeRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="activarUpgradeResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cotizarUpgrades">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cotizarUpgradesRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="cotizarUpgradesResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginAgencyUser">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="loginAgencyUserRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="loginAgencyUserResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="voidByVoucher">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="voidByVoucherRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="voidByVoucherResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="traerIntereses">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="traerInteresesRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="traerInteresesResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+      <wsdl:fault name="ICardException">
+        <wsdlsoap:fault use="encoded" name="ICardException" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultarVoucher">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="consultarVoucherRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="consultarVoucherResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrecompras">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPrecomprasRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getPrecomprasResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherInfo">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVoucherInfoRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getVoucherInfoResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findVoucherAll">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findVoucherAllRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="findVoucherAllResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherAll">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVoucherAllRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getVoucherAllResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarioUnico">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getUsuarioUnicoRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getUsuarioUnicoResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTarifaPadre">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTarifaPadreRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getTarifaPadreResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarVoucherValidado">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="consultarVoucherValidadoRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="consultarVoucherValidadoResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="asociarUpgradesVoid">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="asociarUpgradesVoidRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="asociarUpgradesVoidResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findVoucherAllWithTarjeta">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findVoucherAllWithTarjetaRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="findVoucherAllWithTarjetaResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cotizar">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cotizarRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="cotizarResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherListByIdCliente">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVoucherListByIdClienteRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getVoucherListByIdClienteResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherByIdCliente">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVoucherByIdClienteRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getVoucherByIdClienteResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDatosBotonPago">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDatosBotonPagoRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getDatosBotonPagoResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registrarEndososCapitas">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="registrarEndososCapitasRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="registrarEndososCapitasResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherPasajero">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVoucherPasajeroRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getVoucherPasajeroResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="asociarClienteAvouchers">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="asociarClienteAvouchersRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="asociarClienteAvouchersResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registrarTarjetaCredito">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="registrarTarjetaCreditoRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="registrarTarjetaCreditoResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ejecutarBatchEmisionesDiarias">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ejecutarBatchEmisionesDiariasRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="ejecutarBatchEmisionesDiariasResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activarVoucherBoleto">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="activarVoucherBoletoRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="activarVoucherBoletoResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVouchersCliente">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVouchersClienteRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getVouchersClienteResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarVoucherByEmail">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="consultarVoucherByEmailRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="consultarVoucherByEmailResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="asociarUpgrades">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="asociarUpgradesRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="asociarUpgradesResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVoucherPax">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVoucherPaxRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getVoucherPaxResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="procesarReimpresionTacAnual">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="procesarReimpresionTacAnualRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.ws.icard.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="procesarReimpresionTacAnualResponse">
+        <wsdlsoap:body use="encoded" namespace="https://www.assist-card.net/ws/services/AssistCardService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AssistCardServiceService">
+    <wsdl:port name="AssistCardService" binding="impl:AssistCardServiceSoapBinding">
+      <wsdlsoap:address location="https://www.assist-card.net/ws/services/AssistCardService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

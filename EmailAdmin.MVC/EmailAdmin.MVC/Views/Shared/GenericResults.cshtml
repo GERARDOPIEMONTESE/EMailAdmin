@@ -1,0 +1,10 @@
+﻿@model Admin.Common.Dto.DTOListableItems
+
+@Html.Partial("API/_GenericTable", @Model)
+<div id="divGrafico"></div>
+@if (Model.ListaElementos!=null && Model.ListaElementos.Count>0)
+{    
+    <script>
+        $("#btnGraficar").show();
+    </script>
+}
